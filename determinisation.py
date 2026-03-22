@@ -34,13 +34,13 @@ def est_complet (AF):
     t = AF['transitions']
     count = 0
 
-    for i in range(len(e)):
+    for i in range(len(e)): #on vérifie que chaque état a une flèche pour chaque lettre de l'alphabet
             for k in range(len(t)):
                 if t[k][0] == e[i] :
                     count += 1
             if count !=len(a):
                 test = False
-                print("L'état", e[i], "n'a pas une flèche pour chaque symbole.")
+                print("L'état", e[i], "n'a pas une flèche pour chaque lettre.")
             count = 0
 
     if test == False:
@@ -57,7 +57,7 @@ def completion (AF):
     t = AF['transitions']
     check=False
 
-    for i in range(len(e)):
+    for i in range(len(e)): #si un état n'a pas de transition pour une lettre, on l'ajoute
         for j in range(len(a)):
             check=False
             for k in range(len(t)):
@@ -91,7 +91,7 @@ def determinisation_et_completion (AF):
 
     j=0
 
-    while j<len(e):
+    while j<len(e): #déterminisation 
         for k in range (len(a)):
             fin=""
             for l in range (len(t1)):
@@ -109,7 +109,7 @@ def determinisation_et_completion (AF):
                 t2.append([e[j],a[k],fin])
         j+=1
 
-    for i in range (len(AF['final'])):
+    for i in range (len(AF['final'])): #on indique quels états sont finaux
         for j in range(len(e)):
             check=False
             etats = e[j].split(".")
@@ -119,7 +119,7 @@ def determinisation_et_completion (AF):
             if check and e[j] not in f:
                 f.append(e[j])
 
-    if est_complet(AFD)==False:
+    if est_complet(AFD)==False: #si l'automate n'est pas complet, on le complète
         AFDC=completion(AFD)
     else:
         AFDC=AFD
@@ -127,7 +127,7 @@ def determinisation_et_completion (AF):
 
 def afficher_automate_deterministe_complet(AFDC):
     #afficher_automate(AFDC)
-    for i in range (len(AFDC['etats'])):
+    for i in range (len(AFDC['etats'])): #pour chaque nouvel état, on indique à quels anciens états il correspond
         print(AFDC['etats'][i], end="")
         e=AFDC['etats'][i].split(".")
         print(" <- {", end="")
