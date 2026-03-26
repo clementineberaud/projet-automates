@@ -1,11 +1,10 @@
 def lire_automate_sur_fichier (automate):
-    with open(f"automates/automate{automate}.txt","r") as f:
+    with open(f"automates/automate{automate}.txt","r", encoding="utf-8") as f:
         a={} #dictionnaire de l'automate
         for ligne in f:
             ligne=ligne.strip()
             if ligne=='transitions:':
                 cle=ligne.split(":")[0]
-                print(cle)
                 a[cle]=[]
                 for l in f:
                     l=l.strip()
