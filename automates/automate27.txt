@@ -1,11 +1,10 @@
-etats: 0 1 2 3
+etats: 0 1 2
 alphabet: a b
 initial: 1
-final: 3
+final: 0
 transitions:
+0 a 0
+0 b 0
 1 a 2
 1 b 2
-2 a 0
-2 b 3
-3 a 3
-3 b 3
+2 b 0
