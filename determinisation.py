@@ -268,11 +268,13 @@ def test_determinisation_completion (AF):
             AFDC=completion(AF)
     else :
         AFDC=determinisation_et_completion(AF)
-    afficher_automate_deterministe_complet(AFDC)
-    if "clotures" in AFDC: #si on a utilisé des clotures pour l'automate, on les affiche
-        afficher_cloture(AFDC,AF)
-
     return AFDC
 
+def determinisation_final(AF):
+    AFDC=test_determinisation_completion (AF)
+    afficher_automate_deterministe_complet(AFDC)
+    if "clotures" in AFDC:  # si on a utilisé des clotures pour l'automate, on les affiche
+        afficher_cloture(AFDC, AF)
+    return AFDC
 
 
