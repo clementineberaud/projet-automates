@@ -20,7 +20,12 @@ print()
 print()
 
 #standardisation
-#à compléter
+print("Standardisation :")
+print()
+AFS = est_standard(AF)
+afficher_automate(AFS)
+print()
+print()
 
 #déterminisation et complétion
 print("Déterminisation et complétion :")

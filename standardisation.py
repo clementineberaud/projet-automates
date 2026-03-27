@@ -36,15 +36,15 @@ def standardisation(af):
 
 def est_standard(af):
     if len(af['initial']) > 1 or any(tr[2] in af['initial'] for tr in af['transitions']):#conditions de la standardisation
-        print(af)
         print("Automate non standard")
-        ans = input("Voulez-vous le standardisez? ecrivez OUI ou NON: ")
+        ans = input("Voulez-vous le standardiser ? Écrivez OUI ou NON: ")
         if ans == "NON":
-            return "Automate non standard"
+            return af
         else:
+            print()
+            print("Automate standardisé :")
             af_std = standardisation(af)
-            print(af_std)
-            return "Automate standardisée!"
+            return af_std
     else:
-        return "Automate standard"
+        return af
 
