@@ -21,7 +21,6 @@ while automate != "stop" :
     print("Affichage de l'automate :")
     print()
     AF = lire_automate_sur_fichier(automate)
-    afficher_automate(AF)
     print()
     print()
 
