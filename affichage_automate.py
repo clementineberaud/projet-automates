@@ -1,49 +1,68 @@
-def afficher_automate(a):
-    # affichage des informations principales
+def afficher_automate_deterministe_complet(a):
+    # affichage des informations principales de l'automate
     print("Alphabet :", a["alphabet"])
     print("Etats :", a["etats"])
     print("Initial :", a["initial"])
     print("Final :", a["final"])
     print()
 
-    # affichage de l'entête du tableau
-    ligne = "    "
+    # création du tableau
+    tableau = []
+
+    # en-tête du tableau
+    entete = ["Type", "Etat"]
     for lettre in a["alphabet"]:
-        ligne += lettre + "    "
-    print(ligne)
+        entete.append(str(lettre))
+    tableau.append(entete)
 
-    # parcours des états
+    # création des lignes du tableau
     for etat in a["etats"]:
-        debut = ""
-
-        # on marque les états initiaux et/ou finaux
         if etat in a["initial"] and etat in a["final"]:
-            debut = "E/S "
+            type_etat = "E/S"
         elif etat in a["initial"]:
-            debut = "E   "
+            type_etat = "E"
         elif etat in a["final"]:
-            debut = "S   "
+            type_etat = "S"
         else:
-            debut = "    "
+            type_etat = ""
 
-        ligne = debut + str(etat) + "   "
+        ligne = [type_etat, str(etat)]
 
-        # affichage des transitions pour chaque lettre
+        # remplissage des transitions
         for lettre in a["alphabet"]:
-            if etat in a["transitions"] and lettre in a["transitions"][etat]:
-                dest = a["transitions"][etat][lettre]
+            texte = "--"
 
-                # si aucune transition
-                if dest == []:
-                    ligne += "--  "
-                else:
-                    # on construit le texte des destinations
-                    texte = ""
-                    for d in dest:
-                        texte += str(d) + ","
-                    texte = texte[:-1]  # enlever la dernière virgule
-                    ligne += texte + "   "
-            else:
-                ligne += "--  "
+            if etat in a["transitions"]:
+                if lettre in a["transitions"][etat]:
+                    dest = a["transitions"][etat][lettre]
 
-        print(ligne)
+                    if dest == []:
+                        texte = "--"
+                    else:
+                        texte = ""
+                        for i in range(len(dest)):
+                            texte += str(dest[i])
+                            if i != len(dest) - 1:
+                                texte += ","
+
+            ligne.append(texte)
+
+        tableau.append(ligne)
+
+    # calcul de la largeur des colonnes
+    largeurs = []
+    nb_colonnes = len(tableau[0])
+
+    for j in range(nb_colonnes):
+        maxi = 0
+        for i in range(len(tableau)):
+            if len(str(tableau[i][j])) > maxi:
+                maxi = len(str(tableau[i][j]))
+        largeurs.append(maxi + 3)
+
+    # affichage final bien aligné
+    for i in range(len(tableau)):
+        ligne_affichee = ""
+        for j in range(nb_colonnes):
+            ligne_affichee += str(tableau[i][j]).ljust(largeurs[j])
+        print(ligne_affichee)

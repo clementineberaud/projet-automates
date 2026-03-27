@@ -69,10 +69,60 @@ def completion (AF):
 
     return AF
 
+def est_epsilon (AF):
+    test = False
+    e = AF['etats']
+    t = AF['transitions']
+    for i in range(len(e)):
+        for j in range(len(t)):
+            if t[j][1]=='ε' :
+                test=True
+    return test
+
+def clotures (AF):
+    e=AF['etats']
+    t=AF['transitions']
+    new_etats_af=[]
+    clotures=[]
+
+    for i in range (len(e)):
+        new_etat=e[i]
+        etat_trouve=[e[i]]
+        while len(etat_trouve)>0:
+            etat=etat_trouve.pop(0)
+            for j in range(len(t)):
+                if t[j][0]==etat and t[j][1]=='ε':
+                    if t[j][2] not in new_etat.split("."):
+                        new_etat = new_etat + "." + t[j][2]
+                        etat_trouve.append(t[j][2])
+
+        clotures.append(new_etat)
+        new_etats_af.append(e[i]+"'")
+
+    AF['etats']=new_etats_af
+    AF['clotures']=clotures
+    AF['initial']=[AF['etats'][0]]
+    AF['final'] = [AF['etats'][len(AF['etats'])-1]]
+    return AF
+
+def trouve_cloture (AF,etat):
+    cloture=""
+    for i in range (len(AF['etats'])):
+        if AF['etats'][i]==etat:
+            cloture=AF['clotures'][i]
+    return cloture
+
 def determinisation_et_completion (AF):
     AFD={'etats':[],'alphabet':[],'initial':[],'final':[],'transitions':[]}
     AFD['alphabet']=AF['alphabet']
     initial=""
+    epsilon=False
+    final=AF['final']
+
+    if est_epsilon(AF):
+        epsilon=True
+        AF = clotures(AF)
+        AFD['clotures'] = AF['clotures']
 
     for i in range (len(AF['initial'])):
         if initial=="":
@@ -91,33 +141,73 @@ def determinisation_et_completion (AF):
 
     j=0
 
-    while j<len(e): #déterminisation 
+    while j<len(e): #déterminisation
+        if epsilon :
+            temp = e[j].split(".")
+            etats = ""
+            for z in range(len(temp)):
+                if etats == "":
+                    etats = trouve_cloture(AF, temp[z])
+                else:
+                    etats = etats + "." + trouve_cloture(AF, temp[z])
+        else:
+            etats = e[j].split(".")
+
         for k in range (len(a)):
             fin=""
             for l in range (len(t1)):
-                etats=e[j].split(".")
+
                 for w in range(len(etats)):
                     if t1[l][0]==etats[w] and t1[l][1]==a[k] :
                         if t1[l][2] not in fin:
-                            if fin=="":
-                                fin=t1[l][2]
-                            else :
-                                fin=fin+"."+t1[l][2]
+                            if epsilon:
+                                if fin == "":
+                                    fin = t1[l][2] + "'"
+                                else:
+                                    fin = fin + "." + t1[l][2] + "'"
+                            else:
+                                if fin=="":
+                                    fin=t1[l][2]
+                                else :
+                                    fin=fin+"."+t1[l][2]
             if fin!="":
                 if fin not in e:
                     e.append(fin)
                 t2.append([e[j],a[k],fin])
         j+=1
 
-    for i in range (len(AF['final'])): #on indique quels états sont finaux
-        for j in range(len(e)):
-            check=False
-            etats = e[j].split(".")
-            for k in range(len(etats)):
-                if etats[k] in AF['final']:
-                    check=True
-            if check and e[j] not in f:
-                f.append(e[j])
+    if epsilon:
+        print(final)
+        for i in range (len(final)): #on indique quels états sont finaux
+            for j in range(len(e)):
+                check=False
+                temp = e[j].split(".")
+                etats = ""
+                for z in range(len(temp)):
+                    if etats == "":
+                        etats = trouve_cloture(AF, temp[z])
+                    else:
+                        etats = etats + "." + trouve_cloture(AF, temp[z])
+                etats=etats.split(".")
+                print(etats)
+                for k in range(len(etats)):
+                    if etats[k] in final:
+                        check=True
+                if check and e[j] not in f:
+                    f.append(e[j])
+
+    else:
+
+        for i in range (len(AF['final'])): #on indique quels états sont finaux
+            for j in range(len(e)):
+                check=False
+                etats = e[j].split(".")
+                print(etats)
+                for k in range(len(etats)):
+                    if etats[k] in AF['final']:
+                        check=True
+                if check and e[j] not in f:
+                    f.append(e[j])
 
     if est_complet(AFD)==False: #si l'automate n'est pas complet, on le complète
         AFDC=completion(AFD)
@@ -137,7 +227,15 @@ def afficher_automate_deterministe_complet(AFDC):
                 print(",", end="")
         print("} de l'automate original")
 
-
+def test_determinisation_completion (AF):
+    if est_deterministe(AF)==True:
+        if est_complet(AF)==True:
+            AFDC=AF
+        else :
+            AFDC=completion(AF)
+    else :
+        AFDC=determinisation_et_completion(AF)
+    return AFDC
 
 
 
