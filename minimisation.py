@@ -86,6 +86,10 @@ def minimisation(AFDC) :
             print("Partition Finale :", p)
             fin = True
         ancien_p = p
+
+        if k-1 == 0 :
+            print("L'automate était déjà minimal.")
+
     return p
 
 AFDCM = minimisation(AFDC)
