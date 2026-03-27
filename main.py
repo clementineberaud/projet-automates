@@ -25,7 +25,7 @@ print()
 #déterminisation et complétion
 print("Déterminisation et complétion :")
 print()
-AFDC = test_determinisation_completion(AF)
+AFDC = determinisation_final(AF)
 #à compléter
 print()
 print()
