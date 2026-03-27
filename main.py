@@ -21,14 +21,14 @@ while automate != "stop" :
     print("Affichage de l'automate :")
     print()
     AF = lire_automate_sur_fichier(automate)
+    afficher_automate(AF)
     print()
     print()
 
     #standardisation
     print("Standardisation :")
     print()
-    AFS = est_standard(AF)
-    afficher_automate(AFS)
+    AF = est_standard(AF)
     print()
     print()
 
