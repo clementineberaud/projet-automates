@@ -69,7 +69,7 @@ def afficher_automate(a):
         for i in range(len(tableau)):
             if len(str(tableau[i][j])) > maxi:
                 maxi = len(str(tableau[i][j]))
-        largeurs.append(maxi + 3)
+        largeurs.append(maxi + 8)
 
     # affichage final bien aligné
     for i in range(len(tableau)):
