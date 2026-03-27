@@ -242,23 +242,24 @@ def afficher_cloture (AFDC,AF):
 
                     print("}")
 
-def afficher_automate_deterministe_complet(AFDC):
+def afficher_automate_deterministe_complet(AF,AFDC):
     afficher_automate(AFDC)
     print()
-    print("Table de correspondance :")
-    for i in range (len(AFDC['etats'])): #pour chaque nouvel état, on indique à quels anciens états il correspond
-        print(AFDC['etats'][i], end="")
-        if AFDC['etats'][i]== "P":
-            print( " <- poubelle")
+    if est_deterministe(AF)==False:
+        print("Table de correspondance :")
+        for i in range (len(AFDC['etats'])): #pour chaque nouvel état, on indique à quels anciens états il correspond
+            print(AFDC['etats'][i], end="")
+            if AFDC['etats'][i]== "P":
+                print( " <- poubelle")
 
-        else :
-            e = AFDC['etats'][i].split(".")
-            print(" <- {", end="")
-            for j in range (len(e)):
-                print(e[j], end="")
-                if j!=len(e)-1:
-                    print(",", end="")
-            print("} de l'automate original")
+            else :
+                e = AFDC['etats'][i].split(".")
+                print(" <- {", end="")
+                for j in range (len(e)):
+                    print(e[j], end="")
+                    if j!=len(e)-1:
+                        print(",", end="")
+                print("} de l'automate original")
 
 def test_determinisation_completion (AF):
     if est_deterministe(AF)==True:
@@ -272,7 +273,7 @@ def test_determinisation_completion (AF):
 
 def determinisation_final(AF):
     AFDC=test_determinisation_completion (AF)
-    afficher_automate_deterministe_complet(AFDC)
+    afficher_automate_deterministe_complet(AF,AFDC)
     if "clotures" in AFDC:  # si on a utilisé des clotures pour l'automate, on les affiche
         afficher_cloture(AFDC, AF)
     return AFDC
