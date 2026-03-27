@@ -41,6 +41,7 @@ print()
 #reconnaissance de mots
 print("Reconnaissance de mots : ")
 print()
+print("Pour arrêter les saisies, entrer 'fin'.")
 mot = input("Saisir un mot : ")
 while mot != "fin" :
     print(reconnaitre_mot(mot, AFDC))
