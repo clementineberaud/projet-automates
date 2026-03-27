@@ -1,0 +1,115 @@
+C:\Users\emili\AppData\Local\spyder-6\python.exe C:\Users\emili\PycharmProjects\projet-automates\main.py
+Quel automate voulez-vous tester ?
+Pour arrêter le test, tapez 'stop'.
+Saisie : 30
+
+Affichage de l'automate :
+
+etats: 0 1 2 3 4
+alphabet: a
+initial: 1
+final: 0 3 4
+
+         Etat        a
+S        0           3
+E        1           2
+         2           3
+S        3           4
+S        4           0
+
+
+Standardisation :
+
+Automate standard
+
+
+Déterminisation et complétion :
+
+
+L'automate est déterministe.
+
+
+L'automate est complet.
+
+etats: 0 1 2 3 4
+alphabet: a
+initial: 1
+final: 0 3 4
+
+         Etat        a
+S        0           3
+E        1           2
+         2           3
+S        3           4
+S        4           0
+
+
+
+Minimisation :
+
+Partition P0 : {'T': ['0', '3', '4'], 'NT': ['1', '2']}
+Transitions :
+0 : ['T']
+1 : ['NT']
+2 : ['T']
+3 : ['T']
+4 : ['T']
+
+Partition P1 : {'G1': ['0', '3', '4'], 'G2': ['1'], 'G3': ['2']}
+Transitions :
+0 : ['G1']
+1 : ['G3']
+2 : ['G1']
+3 : ['G1']
+4 : ['G1']
+
+Partition P2 : {'G1': ['0', '3', '4'], 'G2': ['1'], 'G3': ['2']}
+On obtient la même partition que P1.
+
+Partition Finale : {'G1': ['0', '3', '4'], 'G2': ['1'], 'G3': ['2']}
+
+Table de correspondance :
+G1 <- ['0', '3', '4']
+G2 <- ['1']
+G3 <- ['2']
+
+etats: G1 G2 G3
+alphabet: a
+initial: G2
+final: G1
+transitions:
+G1 a G1
+G2 a G3
+G3 a G1
+
+
+Reconnaissance de mots :
+
+Pour arrêter les saisies, entrer 'fin'.
+Saisir un mot : a
+non
+Saisir un mot : aaa
+oui
+Saisir un mot : fin
+
+
+Langage complémentaire :
+
+etats: 0 1 2 3 4
+alphabet: a
+initial: 1
+final: 1 2
+
+           Etat        a
+           0           3
+E/S        1           2
+S          2           3
+           3           4
+           4           0
+
+
+Quel automate voulez-vous tester ?
+Pour arrêter le test, tapez 'stop'.
+Saisie : stop
+
+Process finished with exit code 0

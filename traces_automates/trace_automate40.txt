@@ -1,0 +1,164 @@
+C:\Users\emili\AppData\Local\spyder-6\python.exe C:\Users\emili\PycharmProjects\projet-automates\main.py
+Quel automate voulez-vous tester ?
+Pour arrêter le test, tapez 'stop'.
+Saisie : 40
+
+Affichage de l'automate :
+
+etats: 0 1 2
+alphabet: a b
+initial: 0 1
+final: 0 2
+
+           Etat        a          b
+E/S        0           --         1,2
+E          1           0,2        2
+S          2           0          --
+
+
+Standardisation :
+
+Automate non standard
+Voulez-vous le standardiser ? Écrivez oui ou non : oui
+
+Automate standardisé :
+etats: 0 1 2 I
+alphabet: a b
+initial: I
+final: 0 2 I I I I I I I I I I I I I
+
+           Etat        a          b
+S          0           --         1,2
+           1           0,2        2
+S          2           0          --
+E/S        I           0,2        1,2,2
+
+
+Déterminisation et complétion :
+
+L'état 0 a plusieurs flèches b.
+L'état 1 a plusieurs flèches a.
+L'état I a plusieurs flèches a.
+L'état I a plusieurs flèches b.
+
+L'automate n'est pas déterministe.
+
+L'état 0 n'a pas une flèche pour chaque lettre.
+L'état 2 n'a pas une flèche pour chaque lettre.
+
+L'automate n'est pas complet.
+
+etats: I 0.2 1.2 0 2 P
+alphabet: a b
+initial: I
+final: I 0.2 1.2 0 2
+
+           Etat        a          b
+E/S        I           0.2        1.2
+S          0.2         0          1.2
+S          1.2         0.2        2
+S          0           P          1.2
+S          2           0          P
+           P           P          P
+
+Table de correspondance :
+I <- {I} de l'automate original
+0.2 <- {0,2} de l'automate original
+1.2 <- {1,2} de l'automate original
+0 <- {0} de l'automate original
+2 <- {2} de l'automate original
+P <- poubelle
+
+
+Minimisation :
+
+Partition P0 : {'T': ['I', '0.2', '1.2', '0', '2'], 'NT': ['P']}
+Transitions :
+I : ['T', 'T']
+0.2 : ['T', 'T']
+1.2 : ['T', 'T']
+0 : ['NT', 'T']
+2 : ['T', 'NT']
+P : ['NT', 'NT']
+
+Partition P1 : {'G1': ['I', '0.2', '1.2'], 'G2': ['0'], 'G3': ['2'], 'G4': ['P']}
+Transitions :
+I : ['G1', 'G1']
+0.2 : ['G2', 'G1']
+1.2 : ['G1', 'G3']
+0 : ['G4', 'G1']
+2 : ['G2', 'G4']
+P : ['G4', 'G4']
+
+Partition P2 : {'G1': ['I'], 'G2': ['0.2'], 'G3': ['1.2'], 'G4': ['0'], 'G5': ['2'], 'G6': ['P']}
+Transitions :
+I : ['G2', 'G3']
+0.2 : ['G4', 'G3']
+1.2 : ['G2', 'G5']
+0 : ['G6', 'G3']
+2 : ['G4', 'G6']
+P : ['G6', 'G6']
+
+Partition P3 : {'G1': ['I'], 'G2': ['0.2'], 'G3': ['1.2'], 'G4': ['0'], 'G5': ['2'], 'G6': ['P']}
+On obtient la même partition que P2.
+
+Partition Finale : {'G1': ['I'], 'G2': ['0.2'], 'G3': ['1.2'], 'G4': ['0'], 'G5': ['2'], 'G6': ['P']}
+
+Table de correspondance :
+G1 <- ['I']
+G2 <- ['0.2']
+G3 <- ['1.2']
+G4 <- ['0']
+G5 <- ['2']
+G6 <- ['P']
+
+etats: G1 G2 G3 G4 G5 G6
+alphabet: a b
+initial: G1
+final: G1 G2 G3 G4 G5
+transitions:
+G1 a G2
+G1 b G3
+G2 a G4
+G2 b G3
+G3 a G2
+G3 b G5
+G4 a G6
+G4 b G3
+G5 a G4
+G5 b G6
+G6 a G6
+G6 b G6
+
+
+Reconnaissance de mots :
+
+Pour arrêter les saisies, entrer 'fin'.
+Saisir un mot : a b
+non
+Saisir un mot : ba
+oui
+Saisir un mot : fin
+
+
+Langage complémentaire :
+
+etats: I 0.2 1.2 0 2 P
+alphabet: a b
+initial: I
+final: P
+
+         Etat        a          b
+E        I           0.2        1.2
+         0.2         0          1.2
+         1.2         0.2        2
+         0           P          1.2
+         2           0          P
+S        P           P          P
+
+
+Quel automate voulez-vous tester ?
+Pour arrêter le test, tapez 'stop'.
+Saisie : stop
+
+Process finished with exit code 0

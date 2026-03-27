@@ -1,0 +1,123 @@
+C:\Users\emili\AppData\Local\spyder-6\python.exe C:\Users\emili\PycharmProjects\projet-automates\main.py
+Quel automate voulez-vous tester ?
+Pour arrêter le test, tapez 'stop'.
+Saisie : 27
+
+Affichage de l'automate :
+
+etats: 0 1 2
+alphabet: a b
+initial: 1
+final: 0
+
+         Etat        a         b
+S        0           0         0
+E        1           2         2
+         2           --        0
+
+
+Standardisation :
+
+Automate standard
+
+
+Déterminisation et complétion :
+
+
+L'automate est déterministe.
+
+L'état 2 n'a pas une flèche pour chaque lettre.
+
+L'automate n'est pas complet.
+
+etats: 0 1 2 P
+alphabet: a b
+initial: 1
+final: 0
+
+         Etat        a        b
+S        0           0        0
+E        1           2        2
+         2           P        0
+         P           P        P
+
+
+
+Minimisation :
+
+Partition P0 : {'T': ['0'], 'NT': ['1', '2', 'P']}
+Transitions :
+0 : ['T', 'T']
+1 : ['NT', 'NT']
+2 : ['NT', 'T']
+P : ['NT', 'NT']
+
+Partition P1 : {'G1': ['0'], 'G2': ['1', 'P'], 'G3': ['2']}
+Transitions :
+0 : ['G1', 'G1']
+1 : ['G3', 'G3']
+2 : ['G2', 'G1']
+P : ['G2', 'G2']
+
+Partition P2 : {'G1': ['0'], 'G2': ['1'], 'G3': ['2'], 'G4': ['P']}
+Transitions :
+0 : ['G1', 'G1']
+1 : ['G3', 'G3']
+2 : ['G4', 'G1']
+P : ['G4', 'G4']
+
+Partition P3 : {'G1': ['0'], 'G2': ['1'], 'G3': ['2'], 'G4': ['P']}
+On obtient la même partition que P2.
+
+Partition Finale : {'G1': ['0'], 'G2': ['1'], 'G3': ['2'], 'G4': ['P']}
+
+Table de correspondance :
+G1 <- ['0']
+G2 <- ['1']
+G3 <- ['2']
+G4 <- ['P']
+
+etats: G1 G2 G3 G4
+alphabet: a b
+initial: G2
+final: G1
+transitions:
+G1 a G1
+G1 b G1
+G2 a G3
+G2 b G3
+G3 a G4
+G3 b G1
+G4 a G4
+G4 b G4
+
+
+Reconnaissance de mots :
+
+Pour arrêter les saisies, entrer 'fin'.
+Saisir un mot : aaa
+non
+Saisir un mot : bbaaa
+oui
+Saisir un mot : fin
+
+
+Langage complémentaire :
+
+etats: 0 1 2 P
+alphabet: a b
+initial: 1
+final: 1 2 P
+
+           Etat        a        b
+           0           0        0
+E/S        1           2        2
+S          2           P        0
+S          P           P        P
+
+
+Quel automate voulez-vous tester ?
+Pour arrêter le test, tapez 'stop'.
+Saisie : stop
+
+Process finished with exit code 0

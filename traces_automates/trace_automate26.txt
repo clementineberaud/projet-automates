@@ -1,0 +1,130 @@
+C:\Users\emili\AppData\Local\spyder-6\python.exe C:\Users\emili\PycharmProjects\projet-automates\main.py
+Quel automate voulez-vous tester ?
+Pour arrêter le test, tapez 'stop'.
+Saisie : 26
+
+Affichage de l'automate :
+
+etats: 0 1 2 3
+alphabet: a b
+initial: 1
+final: 3
+
+         Etat        a         b
+         0           --        --
+E        1           2         2
+         2           0         3
+S        3           3         3
+
+
+Standardisation :
+
+Automate standard
+
+
+Déterminisation et complétion :
+
+
+L'automate est déterministe.
+
+L'état 0 n'a pas une flèche pour chaque lettre.
+L'état 0 n'a pas une flèche pour chaque lettre.
+
+L'automate n'est pas complet.
+
+etats: 0 1 2 3 P
+alphabet: a b
+initial: 1
+final: 3
+
+         Etat        a        b
+         0           P        P
+E        1           2        2
+         2           0        3
+S        3           3        3
+         P           P        P
+
+
+
+Minimisation :
+
+Partition P0 : {'T': ['3'], 'NT': ['0', '1', '2', 'P']}
+Transitions :
+0 : ['NT', 'NT']
+1 : ['NT', 'NT']
+2 : ['NT', 'T']
+3 : ['T', 'T']
+P : ['NT', 'NT']
+
+Partition P1 : {'G1': ['3'], 'G2': ['0', '1', 'P'], 'G3': ['2']}
+Transitions :
+0 : ['G2', 'G2']
+1 : ['G3', 'G3']
+2 : ['G2', 'G1']
+3 : ['G1', 'G1']
+P : ['G2', 'G2']
+
+Partition P2 : {'G1': ['3'], 'G2': ['0', 'P'], 'G3': ['1'], 'G4': ['2']}
+Transitions :
+0 : ['G2', 'G2']
+1 : ['G4', 'G4']
+2 : ['G2', 'G1']
+3 : ['G1', 'G1']
+P : ['G2', 'G2']
+
+Partition P3 : {'G1': ['3'], 'G2': ['0', 'P'], 'G3': ['1'], 'G4': ['2']}
+On obtient la même partition que P2.
+
+Partition Finale : {'G1': ['3'], 'G2': ['0', 'P'], 'G3': ['1'], 'G4': ['2']}
+
+Table de correspondance :
+G1 <- ['3']
+G2 <- ['0', 'P']
+G3 <- ['1']
+G4 <- ['2']
+
+etats: G1 G2 G3 G4
+alphabet: a b
+initial: G3
+final: G1
+transitions:
+G1 a G1
+G1 b G1
+G2 a G2
+G2 b G2
+G3 a G4
+G3 b G4
+G4 a G2
+G4 b G1
+
+
+Reconnaissance de mots :
+
+Pour arrêter les saisies, entrer 'fin'.
+Saisir un mot : aa
+non
+Saisir un mot : bb
+oui
+Saisir un mot : fin
+
+
+Langage complémentaire :
+
+etats: 0 1 2 3 P
+alphabet: a b
+initial: 1
+final: 0 1 2 P
+
+           Etat        a        b
+S          0           P        P
+E/S        1           2        2
+S          2           0        3
+           3           3        3
+S          P           P        P
+
+
+Quel automate voulez-vous tester ?
+Pour arrêter le test, tapez 'stop'.
+Saisie : stop
+
+Process finished with exit code 0

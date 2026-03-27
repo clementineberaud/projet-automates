@@ -1,0 +1,140 @@
+C:\Users\emili\AppData\Local\spyder-6\python.exe C:\Users\emili\PycharmProjects\projet-automates\main.py
+Quel automate voulez-vous tester ?
+Pour arrêter le test, tapez 'stop'.
+Saisie : 29
+
+Affichage de l'automate :
+
+etats: 0 1 2 3 4 5
+alphabet: a
+initial: 1
+final: 0 3
+
+         Etat        a
+S        0           4
+E        1           2,4
+         2           3
+S        3           0,2
+         4           3,5
+         5           0
+
+
+Standardisation :
+
+Automate standard
+
+
+Déterminisation et complétion :
+
+L'état 1 a plusieurs flèches a.
+L'état 3 a plusieurs flèches a.
+L'état 4 a plusieurs flèches a.
+
+L'automate n'est pas déterministe.
+
+
+L'automate est complet.
+
+etats: 1 2.4 3.5 0.2 4.3 0.2.3.5 4.3.0.2 4.3.0.2.5
+alphabet: a
+initial: 1
+final: 3.5 0.2 4.3 0.2.3.5 4.3.0.2 4.3.0.2.5
+
+         Etat             a
+E        1                2.4
+         2.4              3.5
+S        3.5              0.2
+S        0.2              4.3
+S        4.3              0.2.3.5
+S        0.2.3.5          4.3.0.2
+S        4.3.0.2          4.3.0.2.5
+S        4.3.0.2.5        4.3.0.2.5
+
+Table de correspondance :
+1 <- {1} de l'automate original
+2.4 <- {2,4} de l'automate original
+3.5 <- {3,5} de l'automate original
+0.2 <- {0,2} de l'automate original
+4.3 <- {4,3} de l'automate original
+0.2.3.5 <- {0,2,3,5} de l'automate original
+4.3.0.2 <- {4,3,0,2} de l'automate original
+4.3.0.2.5 <- {4,3,0,2,5} de l'automate original
+
+
+Minimisation :
+
+Partition P0 : {'T': ['3.5', '0.2', '4.3', '0.2.3.5', '4.3.0.2', '4.3.0.2.5'], 'NT': ['1', '2.4']}
+Transitions :
+1 : ['NT']
+2.4 : ['T']
+3.5 : ['T']
+0.2 : ['T']
+4.3 : ['T']
+0.2.3.5 : ['T']
+4.3.0.2 : ['T']
+4.3.0.2.5 : ['T']
+
+Partition P1 : {'G1': ['3.5', '0.2', '4.3', '0.2.3.5', '4.3.0.2', '4.3.0.2.5'], 'G2': ['1'], 'G3': ['2.4']}
+Transitions :
+1 : ['G3']
+2.4 : ['G1']
+3.5 : ['G1']
+0.2 : ['G1']
+4.3 : ['G1']
+0.2.3.5 : ['G1']
+4.3.0.2 : ['G1']
+4.3.0.2.5 : ['G1']
+
+Partition P2 : {'G1': ['3.5', '0.2', '4.3', '0.2.3.5', '4.3.0.2', '4.3.0.2.5'], 'G2': ['1'], 'G3': ['2.4']}
+On obtient la même partition que P1.
+
+Partition Finale : {'G1': ['3.5', '0.2', '4.3', '0.2.3.5', '4.3.0.2', '4.3.0.2.5'], 'G2': ['1'], 'G3': ['2.4']}
+
+Table de correspondance :
+G1 <- ['3.5', '0.2', '4.3', '0.2.3.5', '4.3.0.2', '4.3.0.2.5']
+G2 <- ['1']
+G3 <- ['2.4']
+
+etats: G1 G2 G3
+alphabet: a
+initial: G2
+final: G1
+transitions:
+G1 a G1
+G2 a G3
+G3 a G1
+
+
+Reconnaissance de mots :
+
+Pour arrêter les saisies, entrer 'fin'.
+Saisir un mot : a
+non
+Saisir un mot : aa
+oui
+Saisir un mot : fin
+
+
+Langage complémentaire :
+
+etats: 1 2.4 3.5 0.2 4.3 0.2.3.5 4.3.0.2 4.3.0.2.5
+alphabet: a
+initial: 1
+final: 1 2.4
+
+           Etat             a
+E/S        1                2.4
+S          2.4              3.5
+           3.5              0.2
+           0.2              4.3
+           4.3              0.2.3.5
+           0.2.3.5          4.3.0.2
+           4.3.0.2          4.3.0.2.5
+           4.3.0.2.5        4.3.0.2.5
+
+
+Quel automate voulez-vous tester ?
+Pour arrêter le test, tapez 'stop'.
+Saisie : stop
+
+Process finished with exit code 0

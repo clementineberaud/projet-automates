@@ -1,0 +1,153 @@
+C:\Users\emili\AppData\Local\spyder-6\python.exe C:\Users\emili\PycharmProjects\projet-automates\main.py
+Quel automate voulez-vous tester ?
+Pour arrêter le test, tapez 'stop'.
+Saisie : 35
+
+Affichage de l'automate :
+
+etats: 0 1 2 3 4 5 6 7 8 9 10
+alphabet: a b
+initial: 0
+final: 10
+
+         Etat        a         b
+E        0           --        --
+         1           2         --
+         2           --        3
+         3           --        --
+         4           --        --
+         5           6         --
+         6           --        7
+         7           --        --
+         8           9         --
+         9           --        --
+S        10          --        --
+
+
+Standardisation :
+
+Automate standard
+
+
+Déterminisation et complétion :
+
+
+L'état 0' n'a pas une flèche pour chaque lettre.
+L'état 2' n'a pas une flèche pour chaque lettre.
+L'état 3'.7' n'a pas une flèche pour chaque lettre.
+L'état 3' n'a pas une flèche pour chaque lettre.
+
+L'automate n'est pas complet.
+
+etats: 0' 2'.6'.9' 2' 3'.7' 3' P
+alphabet: a b
+initial: 0'
+final: 2'.6'.9' 3'.7' 3'
+
+         Etat            a               b
+E        0'              2'.6'.9'        P
+S        2'.6'.9'        2'              3'.7'
+         2'              P               3'
+S        3'.7'           2'.6'.9'        P
+S        3'              2'              P
+         P               P               P
+Table de correspondance :
+0' <- {0'} de l'automate original
+2'.6'.9' <- {2',6',9'} de l'automate original
+2' <- {2'} de l'automate original
+3'.7' <- {3',7'} de l'automate original
+3' <- {3'} de l'automate original
+P <- poubelle
+
+Table de correspondance pour les clôtures :
+0'  <- {0,1,4,5,8}
+2'  <- {2}
+6'  <- {6}
+9'  <- {9,10}
+3'  <- {3,10}
+7'  <- {7,5,8}
+
+
+Minimisation :
+
+Partition P0 : {'T': ["2'.6'.9'", "3'.7'", "3'"], 'NT': ["0'", "2'", 'P']}
+Transitions :
+0' : ['T', 'NT']
+2'.6'.9' : ['NT', 'T']
+2' : ['NT', 'T']
+3'.7' : ['T', 'NT']
+3' : ['NT', 'NT']
+P : ['NT', 'NT']
+
+Partition P1 : {'G1': ["2'.6'.9'"], 'G2': ["3'.7'"], 'G3': ["3'"], 'G4': ["0'"], 'G5': ["2'"], 'G6': ['P']}
+Transitions :
+0' : ['G1', 'G6']
+2'.6'.9' : ['G5', 'G2']
+2' : ['G6', 'G3']
+3'.7' : ['G1', 'G6']
+3' : ['G5', 'G6']
+P : ['G6', 'G6']
+
+Partition P2 : {'G1': ["2'.6'.9'"], 'G2': ["3'.7'"], 'G3': ["3'"], 'G4': ["0'"], 'G5': ["2'"], 'G6': ['P']}
+On obtient la même partition que P1.
+
+Partition Finale : {'G1': ["2'.6'.9'"], 'G2': ["3'.7'"], 'G3': ["3'"], 'G4': ["0'"], 'G5': ["2'"], 'G6': ['P']}
+
+Table de correspondance :
+G1 <- ["2'.6'.9'"]
+G2 <- ["3'.7'"]
+G3 <- ["3'"]
+G4 <- ["0'"]
+G5 <- ["2'"]
+G6 <- ['P']
+
+etats: G1 G2 G3 G4 G5 G6
+alphabet: a b
+initial: G4
+final: G1 G2 G3
+transitions:
+G1 a G5
+G1 b G2
+G2 a G1
+G2 b G6
+G3 a G5
+G3 b G6
+G4 a G1
+G4 b G6
+G5 a G6
+G5 b G3
+G6 a G6
+G6 b G6
+
+
+Reconnaissance de mots :
+
+Pour arrêter les saisies, entrer 'fin'.
+Saisir un mot : bb
+non
+Saisir un mot : ab
+oui
+Saisir un mot : fin
+
+
+Langage complémentaire :
+
+etats: 0' 2'.6'.9' 2' 3'.7' 3' P
+alphabet: a b
+initial: 0'
+final: 0' 2' P
+
+           Etat            a               b
+E/S        0'              2'.6'.9'        P
+           2'.6'.9'        2'              3'.7'
+S          2'              P               3'
+           3'.7'           2'.6'.9'        P
+           3'              2'              P
+S          P               P               P
+
+
+Quel automate voulez-vous tester ?
+Pour arrêter le test, tapez 'stop'.
+Saisie : stop
+
+Process finished with exit code 0

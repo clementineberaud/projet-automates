@@ -1,0 +1,169 @@
+C:\Users\emili\AppData\Local\spyder-6\python.exe C:\Users\emili\PycharmProjects\projet-automates\main.py
+Quel automate voulez-vous tester ?
+Pour arrêter le test, tapez 'stop'.
+Saisie : 32
+
+Affichage de l'automate :
+
+etats: 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21
+alphabet: a b c
+initial: 0
+final: 21
+
+         Etat        a         b         c
+E        0           --        --        --
+         1           --        --        --
+         2           --        --        --
+         3           --        4         --
+         4           --        --        --
+         5           --        --        --
+         6           7         --        --
+         7           --        --        --
+         8           --        --        9
+         9           --        --        --
+         10          --        --        --
+         11          --        --        --
+         12          13        --        --
+         13          --        --        --
+         14          --        --        --
+         15          --        16        --
+         16          --        --        --
+         17          --        --        --
+         18          --        --        19
+         19          --        --        --
+         20          --        --        --
+S        21          --        --        --
+
+
+Standardisation :
+
+Automate standard
+
+
+Déterminisation et complétion :
+
+
+L'état 7' n'a pas une flèche pour chaque lettre.
+L'état 7' n'a pas une flèche pour chaque lettre.
+L'état 4' n'a pas une flèche pour chaque lettre.
+L'état 9' n'a pas une flèche pour chaque lettre.
+L'état 9' n'a pas une flèche pour chaque lettre.
+L'état 9' n'a pas une flèche pour chaque lettre.
+
+L'automate n'est pas complet.
+
+etats: 0' 7' 4' 9' P
+alphabet: a b c
+initial: 0'
+final: 0' 9'
+
+           Etat        a         b         c
+E/S        0'          7'        4'        9'
+           7'          P         P         9'
+           4'          P         4'        9'
+S          9'          P         P         P
+           P           P         P         P
+Table de correspondance :
+0' <- {0'} de l'automate original
+7' <- {7'} de l'automate original
+4' <- {4'} de l'automate original
+9' <- {9'} de l'automate original
+P <- poubelle
+
+Table de correspondance pour les clôtures :
+0'  <- {0,1,10,2,6,11,15,3,5,12,14,8,17,18,20,21}
+7'  <- {7,8}
+4'  <- {4,3,5,8}
+9'  <- {9,21}
+
+
+Minimisation :
+
+Partition P0 : {'T': ["0'", "9'"], 'NT': ["7'", "4'", 'P']}
+Transitions :
+0' : ['NT', 'NT', 'T']
+7' : ['NT', 'NT', 'T']
+4' : ['NT', 'NT', 'T']
+9' : ['NT', 'NT', 'NT']
+P : ['NT', 'NT', 'NT']
+
+Partition P1 : {'G1': ["0'"], 'G2': ["9'"], 'G3': ["7'", "4'"], 'G4': ['P']}
+Transitions :
+0' : ['G3', 'G3', 'G2']
+7' : ['G4', 'G4', 'G2']
+4' : ['G4', 'G3', 'G2']
+9' : ['G4', 'G4', 'G4']
+P : ['G4', 'G4', 'G4']
+
+Partition P2 : {'G1': ["0'"], 'G2': ["9'"], 'G3': ["7'"], 'G4': ["4'"], 'G5': ['P']}
+Transitions :
+0' : ['G3', 'G4', 'G2']
+7' : ['G5', 'G5', 'G2']
+4' : ['G5', 'G4', 'G2']
+9' : ['G5', 'G5', 'G5']
+P : ['G5', 'G5', 'G5']
+
+Partition P3 : {'G1': ["0'"], 'G2': ["9'"], 'G3': ["7'"], 'G4': ["4'"], 'G5': ['P']}
+On obtient la même partition que P2.
+
+Partition Finale : {'G1': ["0'"], 'G2': ["9'"], 'G3': ["7'"], 'G4': ["4'"], 'G5': ['P']}
+
+Table de correspondance :
+G1 <- ["0'"]
+G2 <- ["9'"]
+G3 <- ["7'"]
+G4 <- ["4'"]
+G5 <- ['P']
+
+etats: G1 G2 G3 G4 G5
+alphabet: a b c
+initial: G1
+final: G1 G2
+transitions:
+G1 a G3
+G1 b G4
+G1 c G2
+G2 a G5
+G2 b G5
+G2 c G5
+G3 a G5
+G3 b G5
+G3 c G2
+G4 a G5
+G4 b G4
+G4 c G2
+G5 a G5
+G5 b G5
+G5 c G5
+
+
+Reconnaissance de mots :
+
+Pour arrêter les saisies, entrer 'fin'.
+Saisir un mot : b
+non
+Saisir un mot : c
+oui
+Saisir un mot : fin
+
+
+Langage complémentaire :
+
+etats: 0' 7' 4' 9' P
+alphabet: a b c
+initial: 0'
+final: 7' 4' P
+
+         Etat        a         b         c
+E        0'          7'        4'        9'
+S        7'          P         P         9'
+S        4'          P         4'        9'
+         9'          P         P         P
+S        P           P         P         P
+
+
+Quel automate voulez-vous tester ?
+Pour arrêter le test, tapez 'stop'.
+Saisie : stop
+
+Process finished with exit code 0
