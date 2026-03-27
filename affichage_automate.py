@@ -21,16 +21,13 @@ def afficher_automate(a):
     print()
     print()
 
-    # création du tableau
-    tableau = []
-
-    # en-tête du tableau
-    entete = ["Type", "Etat"]
+    #création des noms de colonnes du tableau
+    tableau = [[""]]
+    tableau[0].append("Etat")
     for lettre in a["alphabet"]:
-        entete.append(str(lettre))
-    tableau.append(entete)
+        tableau[0].append(lettre)
 
-    # création des lignes du tableau
+    #création des lignes du tableau
     for etat in a["etats"]:
         if etat in a["initial"] and etat in a["final"]:
             type_etat = "E/S"
@@ -39,28 +36,27 @@ def afficher_automate(a):
         elif etat in a["final"]:
             type_etat = "S"
         else:
-            type_etat = ""
+            type_etat = " "
+        ligne = [type_etat, etat]
 
-        ligne = [type_etat, str(etat)]
-
-        # remplissage des transitions
         for lettre in a["alphabet"]:
-            texte = "--"
+            ligne.append("")
 
-            if etat in a["transitions"]:
-                if lettre in a["transitions"][etat]:
-                    dest = a["transitions"][etat][lettre]
-
-                    if dest == []:
-                        texte = "--"
+        #remplissage des transitions
+        i = 2
+        arrivee = ""
+        for lettre in a["alphabet"] :
+            for t in a["transitions"] :
+                if t[0] == ligne[1] and t[1] == lettre :
+                    if ligne[i] == "" :
+                        ligne[i] += t[2]
                     else:
-                        texte = ""
-                        for i in range(len(dest)):
-                            texte += str(dest[i])
-                            if i != len(dest) - 1:
-                                texte += ","
+                        ligne[i] += "," + t[2]
+            i += 1
 
-            ligne.append(texte)
+        for i in range(len(ligne)) :
+            if ligne[i] == "" :
+                ligne[i] += "--"
 
         tableau.append(ligne)
 
