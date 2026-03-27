@@ -1,3 +1,5 @@
+from affichage_automate import *
+
 def est_deterministe(AF):
     test=True
     a = AF['alphabet']
@@ -215,8 +217,33 @@ def determinisation_et_completion (AF):
         AFDC=AFD
     return AFDC
 
+def afficher_cloture (AFDC,AF):
+
+    print("Table de correspondance pour les clôtures :")
+    temp=[]
+    for i in range(len(AFDC['etats'])):
+
+        etats = AFDC['etats'][i].split(".")
+
+        for j in range(len(etats)):
+            if etats[j] not in temp:
+                temp.append(etats[j])
+                if etats[j]!="P":
+                    cloture = trouve_cloture(AF, etats[j])
+                    cloture=cloture.split(".")
+                    print(etats[j], " <- {", end="")
+                    for k in range(len(cloture)):
+                        print(cloture[k], end="")
+                        if k != len(cloture) - 1:
+                            print(",", end="")
+
+
+                    print("}")
+
 def afficher_automate_deterministe_complet(AFDC):
-    #afficher_automate(AFDC)
+    afficher_automate(AFDC)
+    print()
+    print("Table de correspondance :")
     for i in range (len(AFDC['etats'])): #pour chaque nouvel état, on indique à quels anciens états il correspond
         print(AFDC['etats'][i], end="")
         e=AFDC['etats'][i].split(".")
@@ -227,14 +254,21 @@ def afficher_automate_deterministe_complet(AFDC):
                 print(",", end="")
         print("} de l'automate original")
 
+
+
+
 def test_determinisation_completion (AF):
-    if est_deterministe(AF)==True:
+    if est_deterministe(AF)==True and est_epsilon(AF)==False:
         if est_complet(AF)==True:
             AFDC=AF
         else :
             AFDC=completion(AF)
     else :
         AFDC=determinisation_et_completion(AF)
+    afficher_automate_deterministe_complet(AFDC)
+    if "clotures" in AFDC:
+        afficher_cloture(AFDC,AF)
+
     return AFDC
 
 

@@ -1,4 +1,4 @@
-def afficher_automate_deterministe_complet(a):
+def afficher_automate(a):
     # affichage des informations principales de l'automate
     print("Alphabet :", a["alphabet"])
     print("Etats :", a["etats"])
