@@ -1,6 +1,3 @@
-from determinisation import *
-from lire_automate import *
-
 def minimisation(AFDC) :
     fin = False
     k = 0 #compteur du nombre d'itérations pour trouver la partition finale
@@ -87,12 +84,12 @@ def minimisation(AFDC) :
             fin = True
         ancien_p = p
 
-        if k-1 == 0 :
+        if k-1 == 0 and fin == True :
             print("L'automate était déjà minimal.")
 
     return p
 
-def afficher_automate_minimal(AFDCM) :
+def afficher_automate_minimal(AFDC, AFDCM) :
     tab_cp = {}
     i = 1
 
@@ -102,19 +99,19 @@ def afficher_automate_minimal(AFDCM) :
         i += 1
     print("Table de correspondance :")
 
-    for grp, etats in tab_cp.items():
+    for grp, etats in tab_cp.items() :
         print(grp, "<-", etats)
 
     #on cherche l'état initial
     initial = []
-    for grp, etats in tab_cp.items():
+    for grp, etats in tab_cp.items() :
         if AFDC["initial"][0] in etats:
             initial = grp
             break
 
     #on cherche les états finaux
     final = []
-    for grp, etats in tab_cp.items():
+    for grp, etats in tab_cp.items() :
         for e in etats:
             if e in AFDC["final"]:
                 final.append(grp)
@@ -122,35 +119,36 @@ def afficher_automate_minimal(AFDCM) :
 
     #on calcule les transitions
     transitions = []
-    for grp, etats in tab_cp.items():
+    for grp, etats in tab_cp.items() :
         representant = etats[0] #on prend le premier état du groupe
-        for lettre in AFDC["alphabet"]:
-            for t in AFDC["transitions"]:
-                if t[0] == representant and t[1] == lettre:
-                    for grp2, etats2 in tab_cp.items(): #on cherche dans quel groupe se trouve t[2]
-                        if t[2] in etats2:
+        for lettre in AFDC["alphabet"] :
+            for t in AFDC["transitions"] :
+                if t[0] == representant and t[1] == lettre :
+                    for grp2, etats2 in tab_cp.items() : #on cherche dans quel groupe se trouve t[2]
+                        if t[2] in etats2 :
                             transitions.append([grp, lettre, grp2])
                             break
+    print()
 
     #on affiche sous le même format d'automates que nos fichiers txt
     print("etats:", end=" ")
-    for grp in tab_cp.keys():
+    for grp in tab_cp.keys() :
         print(grp, end=" ")
     print()
 
     print("alphabet:", end=" ")
-    for lettre in AFDC["alphabet"]:
+    for lettre in AFDC["alphabet"] :
         print(lettre, end=" ")
     print()
 
     print("initial:", initial)
 
     print("final:", end=" ")
-    for f in final:
+    for f in final :
         print(f, end=" ")
     print()
 
     print("transitions:")
-    for t in transitions:
+    for t in transitions :
         print(t[0], t[1], t[2])
 
