@@ -1,6 +1,7 @@
 from affichage_automate import *
 
-def est_deterministe(AF):
+def est_deterministe(AF,afficher):
+
     test=True
     a = AF['alphabet']
     e = AF['etats']
@@ -10,7 +11,8 @@ def est_deterministe(AF):
         return test==False
     if len(AF['initial'])>1: #on vérifie qu'il n'y a pas plusieurs états initiaux
         test=False
-        print("Il y a plusieurs états initiaux.")
+        if afficher==True:
+            print("Il y a plusieurs états initiaux.")
 
     if test==True:
         for i in range (len(e)): #on vérifie que chaque état n'a pas plusieurs flèches d'un même symbole
@@ -20,17 +22,20 @@ def est_deterministe(AF):
                         count+=1
                 if count>1:
                     test=False
-                    print("L'état",e[i],"a plusieurs flèches",a[j],)
+                    if afficher == True:
+                        print(f"L'état {e[i]} a plusieurs flèches {a[j]}.")
                 count=0
+    print()
+    if afficher == True:
+        if test==False:
+            print("L'automate n'est pas déterministe.")
+        else :
+            print("L'automate est déterministe.")
 
-    if test==False:
-        print("L'automate n'est pas déterministe.")
-    else :
-        print("L'automate est déterministe.")
     return test
 
 def est_complet (AF):
-
+    print()
     test = True
     a = AF['alphabet']
     e = AF['etats']
@@ -47,11 +52,13 @@ def est_complet (AF):
                 print("L'état", e[i], "n'a pas une flèche pour chaque lettre.")
 
             count = 0
+    print()
 
     if test == False:
         print("L'automate n'est pas complet.")
     else:
         print("L'automate est complet.")
+    print()
     return test
 
 def completion (AF):
@@ -244,8 +251,9 @@ def afficher_cloture (AFDC,AF):
 
 def afficher_automate_deterministe_complet(AF,AFDC):
     afficher_automate(AFDC)
-    print()
-    if est_deterministe(AF)==False:
+
+    if est_deterministe(AF,False)==False:
+
         print("Table de correspondance :")
         for i in range (len(AFDC['etats'])): #pour chaque nouvel état, on indique à quels anciens états il correspond
             print(AFDC['etats'][i], end="")
@@ -262,8 +270,9 @@ def afficher_automate_deterministe_complet(AF,AFDC):
                 print("} de l'automate original")
 
 def test_determinisation_completion (AF):
-    if est_deterministe(AF)==True:
+    if est_deterministe(AF,True)==True:
         if est_complet(AF)==True:
+
             AFDC=AF
         else :
             AFDC=completion(AF)
