@@ -92,8 +92,6 @@ def minimisation(AFDC) :
 
     return p
 
-AFDCM = minimisation(AFDC)
-
 def afficher_automate_minimal(AFDCM) :
     tab_cp = {}
     i = 1
