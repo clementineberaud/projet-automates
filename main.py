@@ -26,7 +26,6 @@ print()
 print("Déterminisation et complétion :")
 print()
 AFDC = determinisation_final(AF)
-#à compléter
 print()
 print()
 
@@ -40,7 +39,14 @@ print()
 print()
 
 #reconnaissance de mots
-#à compléter
+print("Reconnaissance de mots : ")
+print()
+mot = input("Saisir un mot : ")
+while mot != "fin" :
+    print(reconnaitre_mot(mot, AFDC))
+    mot = input("Saisir un mot : ")
+print()
+print()
 
 #langage complémentaire
 print("Langage complémentaire :")
