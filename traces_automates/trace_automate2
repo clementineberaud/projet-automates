@@ -1,0 +1,108 @@
+C:\Users\cleme\AppData\Local\Programs\Python\Python313\python.exe C:\Users\cleme\PycharmProjects\projet-automates\main.py
+Quel automate voulez-vous tester ?
+Pour arrêter le test, tapez 'stop'.
+Saisie : 2
+
+Affichage de l'automate :
+
+etats: 0
+alphabet: a
+initial: 0
+final: 0
+
+           Etat        a
+E/S        0           0
+
+
+Standardisation :
+
+Automate non standard
+Voulez-vous le standardiser ? Écrivez oui ou non : oui
+
+Automate standardisé :
+etats: 0 I
+alphabet: a
+initial: I
+final: 0 I I
+
+           Etat        a
+S          0           0
+E/S        I           0
+
+
+Déterminisation et complétion :
+
+
+L'automate est déterministe.
+
+
+L'automate est complet.
+
+etats: 0 I
+alphabet: a
+initial: I
+final: 0 I I
+
+           Etat        a
+S          0           0
+E/S        I           0
+
+
+
+Minimisation :
+
+Partition P0 : {'T': ['0', 'I'], 'NT': []}
+Transitions :
+0 : ['T']
+I : ['T']
+
+Partition P1 : {'G1': ['0', 'I']}
+Transitions :
+0 : ['G1']
+I : ['G1']
+
+Partition P2 : {'G1': ['0', 'I']}
+On obtient la même partition que P1.
+
+Partition Finale : {'G1': ['0', 'I']}
+
+Table de correspondance :
+G1 <- ['0', 'I']
+
+etats: G1
+alphabet: a
+initial: G1
+final: G1
+transitions:
+G1 a G1
+
+
+Reconnaissance de mots :
+
+Pour arrêter les saisies, entrer 'fin'.
+Saisir un mot : a
+oui
+Saisir un mot : aaa
+oui
+Saisir un mot : b
+non
+Saisir un mot : fin
+
+
+Langage complémentaire :
+
+etats: 0 I
+alphabet: a
+initial: I
+final:
+
+         Etat        a
+         0           0
+E        I           0
+
+
+Quel automate voulez-vous tester ?
+Pour arrêter le test, tapez 'stop'.
+Saisie : stop
+
+Process finished with exit code 0

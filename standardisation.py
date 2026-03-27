@@ -25,5 +25,6 @@ def est_standard(af):
             afficher_automate(af_std)
             return af_std
     else:
+        print("Automate standard")
         return af
 

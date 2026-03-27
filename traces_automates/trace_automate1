@@ -1,0 +1,94 @@
+C:\Users\cleme\AppData\Local\Programs\Python\Python313\python.exe C:\Users\cleme\PycharmProjects\projet-automates\main.py
+Quel automate voulez-vous tester ?
+Pour arrêter le test, tapez 'stop'.
+Saisie : 1
+
+Affichage de l'automate :
+
+etats: 0
+alphabet: a
+initial: 0
+final: 0
+
+           Etat        a
+E/S        0           --
+
+
+Standardisation :
+
+Automate standard
+
+
+Déterminisation et complétion :
+
+
+L'automate est déterministe.
+
+L'état 0 n'a pas une flèche pour chaque lettre.
+
+L'automate n'est pas complet.
+
+etats: 0 P
+alphabet: a
+initial: 0
+final: 0
+
+           Etat        a
+E/S        0           P
+           P           P
+
+
+
+Minimisation :
+
+Partition P0 : {'T': ['0'], 'NT': ['P']}
+Transitions :
+0 : ['NT']
+P : ['NT']
+
+Partition P1 : {'G1': ['0'], 'G2': ['P']}
+On obtient la même partition que P0.
+
+Partition Finale : {'G1': ['0'], 'G2': ['P']}
+L'automate était déjà minimal.
+
+Table de correspondance :
+G1 <- ['0']
+G2 <- ['P']
+
+etats: G1 G2
+alphabet: a
+initial: G1
+final: G1
+transitions:
+G1 a G2
+G2 a G2
+
+
+Reconnaissance de mots :
+
+Pour arrêter les saisies, entrer 'fin'.
+Saisir un mot :
+oui
+Saisir un mot : a
+non
+Saisir un mot : fin
+
+
+Langage complémentaire :
+
+etats: 0 P
+alphabet: a
+initial: 0
+final: P
+
+         Etat        a
+E        0           P
+S        P           P
+
+
+Quel automate voulez-vous tester ?
+Pour arrêter le test, tapez 'stop'.
+Saisie : stop
+
+Process finished with exit code 0
