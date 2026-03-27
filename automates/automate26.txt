@@ -1,5 +1,5 @@
 etats: 0 1 2 3
-alphabet: a b c d
+alphabet: a b
 initial: 1
 final: 3
 transitions:
