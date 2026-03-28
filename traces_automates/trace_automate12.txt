@@ -1,0 +1,137 @@
+C:\Users\cleme\AppData\Local\Programs\Python\Python313\python.exe C:\Users\cleme\PycharmProjects\projet-automates\main.py
+Quel automate voulez-vous tester ?
+Pour arrêter le test, tapez 'stop'.
+Saisie : 12
+
+Affichage de l'automate :
+
+etats: 0 1
+alphabet: a b c d
+initial: 1
+final: 1
+
+           Etat        a         b         c         d
+           0           --        0         --        1
+E/S        1           1         --        0         --
+
+
+Standardisation :
+
+Automate non standard
+Voulez-vous le standardiser ? Écrivez oui ou non : oui
+
+Automate standardisé :
+etats: 0 1 I
+alphabet: a b c d
+initial: I
+final: 1 I I I I
+
+           Etat        a         b         c         d
+           0           --        0         --        1
+S          1           1         --        0         --
+E/S        I           1         --        0         --
+
+
+Déterminisation et complétion :
+
+
+L'automate est déterministe.
+
+L'état 0 n'a pas une flèche pour chaque lettre.
+L'état 0 n'a pas une flèche pour chaque lettre.
+L'état 1 n'a pas une flèche pour chaque lettre.
+L'état 1 n'a pas une flèche pour chaque lettre.
+L'état I n'a pas une flèche pour chaque lettre.
+L'état I n'a pas une flèche pour chaque lettre.
+
+L'automate n'est pas complet.
+
+etats: 0 1 I P
+alphabet: a b c d
+initial: I
+final: 1 I I I I
+
+           Etat        a        b        c        d
+           0           P        0        P        1
+S          1           1        P        0        P
+E/S        I           1        P        0        P
+           P           P        P        P        P
+
+
+
+Minimisation :
+
+Partition P0 : {'T': ['1', 'I'], 'NT': ['0', 'P']}
+Transitions :
+0 : ['NT', 'NT', 'NT', 'T']
+1 : ['T', 'NT', 'NT', 'NT']
+I : ['T', 'NT', 'NT', 'NT']
+P : ['NT', 'NT', 'NT', 'NT']
+
+Partition P1 : {'G1': ['1', 'I'], 'G2': ['0'], 'G3': ['P']}
+Transitions :
+0 : ['G3', 'G2', 'G3', 'G1']
+1 : ['G1', 'G3', 'G2', 'G3']
+I : ['G1', 'G3', 'G2', 'G3']
+P : ['G3', 'G3', 'G3', 'G3']
+
+Partition P2 : {'G1': ['1', 'I'], 'G2': ['0'], 'G3': ['P']}
+On obtient la même partition que P1.
+
+Partition Finale : {'G1': ['1', 'I'], 'G2': ['0'], 'G3': ['P']}
+
+Table de correspondance :
+G1 <- ['1', 'I']
+G2 <- ['0']
+G3 <- ['P']
+
+etats: G1 G2 G3
+alphabet: a b c d
+initial: G1
+final: G1
+transitions:
+G1 a G1
+G1 b G3
+G1 c G2
+G1 d G3
+G2 a G3
+G2 b G2
+G2 c G3
+G2 d G1
+G3 a G3
+G3 b G3
+G3 c G3
+G3 d G3
+
+
+Reconnaissance de mots :
+
+Pour arrêter les saisies, entrer 'fin'.
+Saisir un mot : cbd
+oui
+Saisir un mot : cab
+non
+Saisir un mot : dab
+non
+Saisir un mot : fin
+
+
+Langage complémentaire :
+
+etats: 0 1 I P
+alphabet: a b c d
+initial: I
+final: 0 P
+
+         Etat        a        b        c        d
+S        0           P        0        P        1
+         1           1        P        0        P
+E        I           1        P        0        P
+S        P           P        P        P        P
+
+
+Quel automate voulez-vous tester ?
+Pour arrêter le test, tapez 'stop'.
+Saisie : stop
+
+Process finished with exit code 0

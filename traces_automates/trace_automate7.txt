@@ -1,0 +1,113 @@
+C:\Users\cleme\AppData\Local\Programs\Python\Python313\python.exe C:\Users\cleme\PycharmProjects\projet-automates\main.py
+Quel automate voulez-vous tester ?
+Pour arrêter le test, tapez 'stop'.
+Saisie : 7
+
+Affichage de l'automate :
+
+etats: 0 1
+alphabet: a
+initial: 1
+final: 0
+
+         Etat        a
+S        0           --
+E        1           0,1
+
+
+Standardisation :
+
+Automate non standard
+Voulez-vous le standardiser ? Écrivez oui ou non : oui
+
+Automate standardisé :
+etats: 0 1 I
+alphabet: a
+initial: I
+final: 0
+
+         Etat        a
+S        0           --
+         1           0,1
+E        I           0,1
+
+
+Déterminisation et complétion :
+
+L'état 1 a plusieurs flèches a.
+L'état I a plusieurs flèches a.
+
+L'automate n'est pas déterministe.
+
+
+L'automate est complet.
+
+etats: I 0.1
+alphabet: a
+initial: I
+final: 0.1
+
+         Etat        a
+E        I           0.1
+S        0.1         0.1
+
+Table de correspondance :
+I <- {I} de l'automate original
+0.1 <- {0,1} de l'automate original
+
+
+Minimisation :
+
+Partition P0 : {'T': ['0.1'], 'NT': ['I']}
+Transitions :
+I : ['T']
+0.1 : ['T']
+
+Partition P1 : {'G1': ['0.1'], 'G2': ['I']}
+On obtient la même partition que P0.
+
+Partition Finale : {'G1': ['0.1'], 'G2': ['I']}
+L'automate était déjà minimal.
+
+Table de correspondance :
+G1 <- ['0.1']
+G2 <- ['I']
+
+etats: G1 G2
+alphabet: a
+initial: G2
+final: G1
+transitions:
+G1 a G1
+G2 a G1
+
+
+Reconnaissance de mots :
+
+Pour arrêter les saisies, entrer 'fin'.
+Saisir un mot : a
+oui
+Saisir un mot : aa
+oui
+Saisir un mot : b
+non
+Saisir un mot : fin
+
+
+Langage complémentaire :
+
+etats: I 0.1
+alphabet: a
+initial: I
+final: I
+
+           Etat        a
+E/S        I           0.1
+           0.1         0.1
+
+
+Quel automate voulez-vous tester ?
+Pour arrêter le test, tapez 'stop'.
+Saisie : stop
+
+Process finished with exit code 0

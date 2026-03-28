@@ -1,0 +1,217 @@
+C:\Users\cleme\AppData\Local\Programs\Python\Python313\python.exe C:\Users\cleme\PycharmProjects\projet-automates\main.py
+Quel automate voulez-vous tester ?
+Pour arrêter le test, tapez 'stop'.
+Saisie : 17
+
+Affichage de l'automate :
+
+etats: 0 1 2 3 4 5
+alphabet: a b c d
+initial: 1 2 3 4
+final: 5
+
+         Etat        a          b          c          d
+         0           --         --         --         --
+E        1           1,2        --         --         --
+E        2           --         2,3        --         --
+E        3           --         --         3,4        --
+E        4           --         --         --         4,5
+S        5           0          0          0          0
+
+
+Standardisation :
+
+Automate non standard
+Voulez-vous le standardiser ? Écrivez oui ou non : oui
+
+Automate standardisé :
+etats: 0 1 2 3 4 5 I
+alphabet: a b c d
+initial: I
+final: 5 I I I I I I I I I I I I I I I I I I I I I I I I I I I I I I I I I I I I
+
+           Etat        a          b          c          d
+           0           --         --         --         --
+           1           1,2        --         --         --
+           2           --         2,3        --         --
+           3           --         --         3,4        --
+           4           --         --         --         4,5
+S          5           0          0          0          0
+E/S        I           1,2        2,3        3,4        4,5
+
+
+Déterminisation et complétion :
+
+L'état 1 a plusieurs flèches a.
+L'état 2 a plusieurs flèches b.
+L'état 3 a plusieurs flèches c.
+L'état 4 a plusieurs flèches d.
+L'état I a plusieurs flèches a.
+L'état I a plusieurs flèches b.
+L'état I a plusieurs flèches c.
+L'état I a plusieurs flèches d.
+
+L'automate n'est pas déterministe.
+
+L'état 1.2 n'a pas une flèche pour chaque lettre.
+L'état 1.2 n'a pas une flèche pour chaque lettre.
+L'état 2.3 n'a pas une flèche pour chaque lettre.
+L'état 2.3 n'a pas une flèche pour chaque lettre.
+L'état 3.4 n'a pas une flèche pour chaque lettre.
+L'état 3.4 n'a pas une flèche pour chaque lettre.
+L'état 0 n'a pas une flèche pour chaque lettre.
+L'état 0 n'a pas une flèche pour chaque lettre.
+L'état 0 n'a pas une flèche pour chaque lettre.
+L'état 0 n'a pas une flèche pour chaque lettre.
+
+L'automate n'est pas complet.
+
+etats: I 1.2 2.3 3.4 4.5 0 4.5.0 P
+alphabet: a b c d
+initial: I
+final: I 4.5 4.5.0
+
+           Etat         a          b          c          d
+E/S        I            1.2        2.3        3.4        4.5
+           1.2          1.2        2.3        P          P
+           2.3          P          2.3        3.4        P
+           3.4          P          P          3.4        4.5
+S          4.5          0          0          0          4.5.0
+           0            P          P          P          P
+S          4.5.0        0          0          0          4.5.0
+           P            P          P          P          P
+
+Table de correspondance :
+I <- {I} de l'automate original
+1.2 <- {1,2} de l'automate original
+2.3 <- {2,3} de l'automate original
+3.4 <- {3,4} de l'automate original
+4.5 <- {4,5} de l'automate original
+0 <- {0} de l'automate original
+4.5.0 <- {4,5,0} de l'automate original
+P <- poubelle
+
+
+Minimisation :
+
+Partition P0 : {'T': ['I', '4.5', '4.5.0'], 'NT': ['1.2', '2.3', '3.4', '0', 'P']}
+Transitions :
+I : ['NT', 'NT', 'NT', 'T']
+1.2 : ['NT', 'NT', 'NT', 'NT']
+2.3 : ['NT', 'NT', 'NT', 'NT']
+3.4 : ['NT', 'NT', 'NT', 'T']
+4.5 : ['NT', 'NT', 'NT', 'T']
+0 : ['NT', 'NT', 'NT', 'NT']
+4.5.0 : ['NT', 'NT', 'NT', 'T']
+P : ['NT', 'NT', 'NT', 'NT']
+
+Partition P1 : {'G1': ['I', '4.5', '4.5.0'], 'G2': ['1.2', '2.3', '0', 'P'], 'G3': ['3.4']}
+Transitions :
+I : ['G2', 'G2', 'G3', 'G1']
+1.2 : ['G2', 'G2', 'G2', 'G2']
+2.3 : ['G2', 'G2', 'G3', 'G2']
+3.4 : ['G2', 'G2', 'G3', 'G1']
+4.5 : ['G2', 'G2', 'G2', 'G1']
+0 : ['G2', 'G2', 'G2', 'G2']
+4.5.0 : ['G2', 'G2', 'G2', 'G1']
+P : ['G2', 'G2', 'G2', 'G2']
+
+Partition P2 : {'G1': ['I'], 'G2': ['4.5', '4.5.0'], 'G3': ['1.2', '0', 'P'], 'G4': ['2.3'], 'G5': ['3.4']}
+Transitions :
+I : ['G3', 'G4', 'G5', 'G2']
+1.2 : ['G3', 'G4', 'G3', 'G3']
+2.3 : ['G3', 'G4', 'G5', 'G3']
+3.4 : ['G3', 'G3', 'G5', 'G2']
+4.5 : ['G3', 'G3', 'G3', 'G2']
+0 : ['G3', 'G3', 'G3', 'G3']
+4.5.0 : ['G3', 'G3', 'G3', 'G2']
+P : ['G3', 'G3', 'G3', 'G3']
+
+Partition P3 : {'G1': ['I'], 'G2': ['4.5', '4.5.0'], 'G3': ['1.2'], 'G4': ['2.3'], 'G5': ['3.4'], 'G6': ['0', 'P']}
+Transitions :
+I : ['G3', 'G4', 'G5', 'G2']
+1.2 : ['G3', 'G4', 'G6', 'G6']
+2.3 : ['G6', 'G4', 'G5', 'G6']
+3.4 : ['G6', 'G6', 'G5', 'G2']
+4.5 : ['G6', 'G6', 'G6', 'G2']
+0 : ['G6', 'G6', 'G6', 'G6']
+4.5.0 : ['G6', 'G6', 'G6', 'G2']
+P : ['G6', 'G6', 'G6', 'G6']
+
+Partition P4 : {'G1': ['I'], 'G2': ['4.5', '4.5.0'], 'G3': ['1.2'], 'G4': ['2.3'], 'G5': ['3.4'], 'G6': ['0', 'P']}
+On obtient la même partition que P3.
+
+Partition Finale : {'G1': ['I'], 'G2': ['4.5', '4.5.0'], 'G3': ['1.2'], 'G4': ['2.3'], 'G5': ['3.4'], 'G6': ['0', 'P']}
+
+Table de correspondance :
+G1 <- ['I']
+G2 <- ['4.5', '4.5.0']
+G3 <- ['1.2']
+G4 <- ['2.3']
+G5 <- ['3.4']
+G6 <- ['0', 'P']
+
+etats: G1 G2 G3 G4 G5 G6
+alphabet: a b c d
+initial: G1
+final: G1 G2
+transitions:
+G1 a G3
+G1 b G4
+G1 c G5
+G1 d G2
+G2 a G6
+G2 b G6
+G2 c G6
+G2 d G2
+G3 a G3
+G3 b G4
+G3 c G6
+G3 d G6
+G4 a G6
+G4 b G4
+G4 c G5
+G4 d G6
+G5 a G6
+G5 b G6
+G5 c G5
+G5 d G2
+G6 a G6
+G6 b G6
+G6 c G6
+G6 d G6
+
+
+Reconnaissance de mots :
+
+Pour arrêter les saisies, entrer 'fin'.
+Saisir un mot : abcd
+oui
+Saisir un mot : abcdc
+non
+Saisir un mot : fin
+
+
+Langage complémentaire :
+
+etats: I 1.2 2.3 3.4 4.5 0 4.5.0 P
+alphabet: a b c d
+initial: I
+final: 1.2 2.3 3.4 0 P
+
+         Etat         a          b          c          d
+E        I            1.2        2.3        3.4        4.5
+S        1.2          1.2        2.3        P          P
+S        2.3          P          2.3        3.4        P
+S        3.4          P          P          3.4        4.5
+         4.5          0          0          0          4.5.0
+S        0            P          P          P          P
+         4.5.0        0          0          0          4.5.0
+S        P            P          P          P          P
+
+
+Quel automate voulez-vous tester ?
+Pour arrêter le test, tapez 'stop'.
+Saisie : stop
+
+Process finished with exit code 0

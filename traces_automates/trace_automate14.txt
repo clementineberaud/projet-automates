@@ -1,0 +1,171 @@
+C:\Users\cleme\AppData\Local\Programs\Python\Python313\python.exe C:\Users\cleme\PycharmProjects\projet-automates\main.py
+Quel automate voulez-vous tester ?
+Pour arrêter le test, tapez 'stop'.
+Saisie : 14
+
+Affichage de l'automate :
+
+etats: 0 1 2 3
+alphabet: a b c d
+initial: 0
+final: 1
+
+         Etat        a         b         c         d
+E        0           0         2         3         1
+S        1           --        --        --        1
+         2           --        2         3         1
+         3           --        --        3         1
+
+
+Standardisation :
+
+Automate non standard
+Voulez-vous le standardiser ? Écrivez oui ou non : oui
+
+Automate standardisé :
+etats: 0 1 2 3 I
+alphabet: a b c d
+initial: I
+final: 1 I I I I I
+
+           Etat        a         b         c         d
+           0           0         2         3         1
+S          1           --        --        --        1
+           2           --        2         3         1
+           3           --        --        3         1
+E/S        I           0         2         3         1
+
+
+Déterminisation et complétion :
+
+
+L'automate est déterministe.
+
+L'état 1 n'a pas une flèche pour chaque lettre.
+L'état 1 n'a pas une flèche pour chaque lettre.
+L'état 1 n'a pas une flèche pour chaque lettre.
+L'état 2 n'a pas une flèche pour chaque lettre.
+L'état 3 n'a pas une flèche pour chaque lettre.
+L'état 3 n'a pas une flèche pour chaque lettre.
+
+L'automate n'est pas complet.
+
+etats: 0 1 2 3 I P
+alphabet: a b c d
+initial: I
+final: 1 I I I I I
+
+           Etat        a        b        c        d
+           0           0        2        3        1
+S          1           P        P        P        1
+           2           P        2        3        1
+           3           P        P        3        1
+E/S        I           0        2        3        1
+           P           P        P        P        P
+
+
+
+Minimisation :
+
+Partition P0 : {'T': ['1', 'I'], 'NT': ['0', '2', '3', 'P']}
+Transitions :
+0 : ['NT', 'NT', 'NT', 'T']
+1 : ['NT', 'NT', 'NT', 'T']
+2 : ['NT', 'NT', 'NT', 'T']
+3 : ['NT', 'NT', 'NT', 'T']
+I : ['NT', 'NT', 'NT', 'T']
+P : ['NT', 'NT', 'NT', 'NT']
+
+Partition P1 : {'G1': ['1', 'I'], 'G2': ['0', '2', '3'], 'G3': ['P']}
+Transitions :
+0 : ['G2', 'G2', 'G2', 'G1']
+1 : ['G3', 'G3', 'G3', 'G1']
+2 : ['G3', 'G2', 'G2', 'G1']
+3 : ['G3', 'G3', 'G2', 'G1']
+I : ['G2', 'G2', 'G2', 'G1']
+P : ['G3', 'G3', 'G3', 'G3']
+
+Partition P2 : {'G1': ['1'], 'G2': ['I'], 'G3': ['0'], 'G4': ['2'], 'G5': ['3'], 'G6': ['P']}
+Transitions :
+0 : ['G3', 'G4', 'G5', 'G1']
+1 : ['G6', 'G6', 'G6', 'G1']
+2 : ['G6', 'G4', 'G5', 'G1']
+3 : ['G6', 'G6', 'G5', 'G1']
+I : ['G3', 'G4', 'G5', 'G1']
+P : ['G6', 'G6', 'G6', 'G6']
+
+Partition P3 : {'G1': ['1'], 'G2': ['I'], 'G3': ['0'], 'G4': ['2'], 'G5': ['3'], 'G6': ['P']}
+On obtient la même partition que P2.
+
+Partition Finale : {'G1': ['1'], 'G2': ['I'], 'G3': ['0'], 'G4': ['2'], 'G5': ['3'], 'G6': ['P']}
+
+Table de correspondance :
+G1 <- ['1']
+G2 <- ['I']
+G3 <- ['0']
+G4 <- ['2']
+G5 <- ['3']
+G6 <- ['P']
+
+etats: G1 G2 G3 G4 G5 G6
+alphabet: a b c d
+initial: G2
+final: G1 G2
+transitions:
+G1 a G6
+G1 b G6
+G1 c G6
+G1 d G1
+G2 a G3
+G2 b G4
+G2 c G5
+G2 d G1
+G3 a G3
+G3 b G4
+G3 c G5
+G3 d G1
+G4 a G6
+G4 b G4
+G4 c G5
+G4 d G1
+G5 a G6
+G5 b G6
+G5 c G5
+G5 d G1
+G6 a G6
+G6 b G6
+G6 c G6
+G6 d G6
+
+
+Reconnaissance de mots :
+
+Pour arrêter les saisies, entrer 'fin'.
+Saisir un mot : abcd
+oui
+Saisir un mot : dcba
+non
+Saisir un mot : fin
+
+
+Langage complémentaire :
+
+etats: 0 1 2 3 I P
+alphabet: a b c d
+initial: I
+final: 0 2 3 P
+
+         Etat        a        b        c        d
+S        0           0        2        3        1
+         1           P        P        P        1
+S        2           P        2        3        1
+S        3           P        P        3        1
+E        I           0        2        3        1
+S        P           P        P        P        P
+
+
+Quel automate voulez-vous tester ?
+Pour arrêter le test, tapez 'stop'.
+Saisie : stop
+
+Process finished with exit code 0

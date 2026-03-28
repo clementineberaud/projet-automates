@@ -1,0 +1,136 @@
+C:\Users\cleme\AppData\Local\Programs\Python\Python313\python.exe C:\Users\cleme\PycharmProjects\projet-automates\main.py
+Quel automate voulez-vous tester ?
+Pour arrêter le test, tapez 'stop'.
+Saisie : 11
+
+Affichage de l'automate :
+
+etats: 0 1 2 3
+alphabet: a b
+initial: 0
+final: 2
+
+         Etat        a        b
+E        0           2        3
+         1           3        3
+S        2           1        0
+         3           3        3
+
+
+Standardisation :
+
+Automate non standard
+Voulez-vous le standardiser ? Écrivez oui ou non : oui
+
+Automate standardisé :
+etats: 0 1 2 3 I
+alphabet: a b
+initial: I
+final: 2 I I I I
+
+           Etat        a        b
+           0           2        3
+           1           3        3
+S          2           1        0
+           3           3        3
+E/S        I           2        3
+
+
+Déterminisation et complétion :
+
+
+L'automate est déterministe.
+
+
+L'automate est complet.
+
+etats: 0 1 2 3 I
+alphabet: a b
+initial: I
+final: 2 I I I I
+
+           Etat        a        b
+           0           2        3
+           1           3        3
+S          2           1        0
+           3           3        3
+E/S        I           2        3
+
+
+
+Minimisation :
+
+Partition P0 : {'T': ['2', 'I'], 'NT': ['0', '1', '3']}
+Transitions :
+0 : ['T', 'NT']
+1 : ['NT', 'NT']
+2 : ['NT', 'NT']
+3 : ['NT', 'NT']
+I : ['T', 'NT']
+
+Partition P1 : {'G1': ['2'], 'G2': ['I'], 'G3': ['0'], 'G4': ['1', '3']}
+Transitions :
+0 : ['G1', 'G4']
+1 : ['G4', 'G4']
+2 : ['G4', 'G3']
+3 : ['G4', 'G4']
+I : ['G1', 'G4']
+
+Partition P2 : {'G1': ['2'], 'G2': ['I'], 'G3': ['0'], 'G4': ['1', '3']}
+On obtient la même partition que P1.
+
+Partition Finale : {'G1': ['2'], 'G2': ['I'], 'G3': ['0'], 'G4': ['1', '3']}
+
+Table de correspondance :
+G1 <- ['2']
+G2 <- ['I']
+G3 <- ['0']
+G4 <- ['1', '3']
+
+etats: G1 G2 G3 G4
+alphabet: a b
+initial: G2
+final: G1 G2
+transitions:
+G1 a G4
+G1 b G3
+G2 a G1
+G2 b G4
+G3 a G1
+G3 b G4
+G4 a G4
+G4 b G4
+
+
+Reconnaissance de mots :
+
+Pour arrêter les saisies, entrer 'fin'.
+Saisir un mot : a
+oui
+Saisir un mot : ab
+non
+Saisir un mot : b
+non
+Saisir un mot : fin
+
+
+Langage complémentaire :
+
+etats: 0 1 2 3 I
+alphabet: a b
+initial: I
+final: 0 1 3
+
+         Etat        a        b
+S        0           2        3
+S        1           3        3
+         2           1        0
+S        3           3        3
+E        I           2        3
+
+
+Quel automate voulez-vous tester ?
+Pour arrêter le test, tapez 'stop'.
+Saisie : stop
+
+Process finished with exit code 0

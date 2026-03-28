@@ -1,0 +1,211 @@
+C:\Users\cleme\AppData\Local\Programs\Python\Python313\python.exe C:\Users\cleme\PycharmProjects\projet-automates\main.py
+Quel automate voulez-vous tester ?
+Pour arrêter le test, tapez 'stop'.
+Saisie : 16
+
+Affichage de l'automate :
+
+etats: 0 1 2 3 4
+alphabet: a b c d
+initial: 1
+final: 0
+
+         Etat        a          b          c          d
+S        0           --         --         --         --
+E        1           2,1        --         --         --
+         2           --         3,2        --         --
+         3           --         --         4,3        --
+         4           --         --         --         0,4
+
+
+Standardisation :
+
+Automate non standard
+Voulez-vous le standardiser ? Écrivez oui ou non : oui
+
+Automate standardisé :
+etats: 0 1 2 3 4 I
+alphabet: a b c d
+initial: I
+final: 0
+
+         Etat        a          b          c          d
+S        0           --         --         --         --
+         1           2,1        --         --         --
+         2           --         3,2        --         --
+         3           --         --         4,3        --
+         4           --         --         --         0,4
+E        I           2,1        --         --         --
+
+
+Déterminisation et complétion :
+
+L'état 1 a plusieurs flèches a.
+L'état 2 a plusieurs flèches b.
+L'état 3 a plusieurs flèches c.
+L'état 4 a plusieurs flèches d.
+L'état I a plusieurs flèches a.
+
+L'automate n'est pas déterministe.
+
+L'état I n'a pas une flèche pour chaque lettre.
+L'état I n'a pas une flèche pour chaque lettre.
+L'état I n'a pas une flèche pour chaque lettre.
+L'état 2.1 n'a pas une flèche pour chaque lettre.
+L'état 2.1 n'a pas une flèche pour chaque lettre.
+L'état 3.2 n'a pas une flèche pour chaque lettre.
+L'état 3.2 n'a pas une flèche pour chaque lettre.
+L'état 4.3 n'a pas une flèche pour chaque lettre.
+L'état 4.3 n'a pas une flèche pour chaque lettre.
+L'état 0.4 n'a pas une flèche pour chaque lettre.
+L'état 0.4 n'a pas une flèche pour chaque lettre.
+L'état 0.4 n'a pas une flèche pour chaque lettre.
+
+L'automate n'est pas complet.
+
+etats: I 2.1 3.2 4.3 0.4 P
+alphabet: a b c d
+initial: I
+final: 0.4
+
+         Etat        a          b          c          d
+E        I           2.1        P          P          P
+         2.1         2.1        3.2        P          P
+         3.2         P          3.2        4.3        P
+         4.3         P          P          4.3        0.4
+S        0.4         P          P          P          0.4
+         P           P          P          P          P
+
+Table de correspondance :
+I <- {I} de l'automate original
+2.1 <- {2,1} de l'automate original
+3.2 <- {3,2} de l'automate original
+4.3 <- {4,3} de l'automate original
+0.4 <- {0,4} de l'automate original
+P <- poubelle
+
+
+Minimisation :
+
+Partition P0 : {'T': ['0.4'], 'NT': ['I', '2.1', '3.2', '4.3', 'P']}
+Transitions :
+I : ['NT', 'NT', 'NT', 'NT']
+2.1 : ['NT', 'NT', 'NT', 'NT']
+3.2 : ['NT', 'NT', 'NT', 'NT']
+4.3 : ['NT', 'NT', 'NT', 'T']
+0.4 : ['NT', 'NT', 'NT', 'T']
+P : ['NT', 'NT', 'NT', 'NT']
+
+Partition P1 : {'G1': ['0.4'], 'G2': ['I', '2.1', '3.2', 'P'], 'G3': ['4.3']}
+Transitions :
+I : ['G2', 'G2', 'G2', 'G2']
+2.1 : ['G2', 'G2', 'G2', 'G2']
+3.2 : ['G2', 'G2', 'G3', 'G2']
+4.3 : ['G2', 'G2', 'G3', 'G1']
+0.4 : ['G2', 'G2', 'G2', 'G1']
+P : ['G2', 'G2', 'G2', 'G2']
+
+Partition P2 : {'G1': ['0.4'], 'G2': ['I', '2.1', 'P'], 'G3': ['3.2'], 'G4': ['4.3']}
+Transitions :
+I : ['G2', 'G2', 'G2', 'G2']
+2.1 : ['G2', 'G3', 'G2', 'G2']
+3.2 : ['G2', 'G3', 'G4', 'G2']
+4.3 : ['G2', 'G2', 'G4', 'G1']
+0.4 : ['G2', 'G2', 'G2', 'G1']
+P : ['G2', 'G2', 'G2', 'G2']
+
+Partition P3 : {'G1': ['0.4'], 'G2': ['I', 'P'], 'G3': ['2.1'], 'G4': ['3.2'], 'G5': ['4.3']}
+Transitions :
+I : ['G3', 'G2', 'G2', 'G2']
+2.1 : ['G3', 'G4', 'G2', 'G2']
+3.2 : ['G2', 'G4', 'G5', 'G2']
+4.3 : ['G2', 'G2', 'G5', 'G1']
+0.4 : ['G2', 'G2', 'G2', 'G1']
+P : ['G2', 'G2', 'G2', 'G2']
+
+Partition P4 : {'G1': ['0.4'], 'G2': ['I'], 'G3': ['2.1'], 'G4': ['3.2'], 'G5': ['4.3'], 'G6': ['P']}
+Transitions :
+I : ['G3', 'G6', 'G6', 'G6']
+2.1 : ['G3', 'G4', 'G6', 'G6']
+3.2 : ['G6', 'G4', 'G5', 'G6']
+4.3 : ['G6', 'G6', 'G5', 'G1']
+0.4 : ['G6', 'G6', 'G6', 'G1']
+P : ['G6', 'G6', 'G6', 'G6']
+
+Partition P5 : {'G1': ['0.4'], 'G2': ['I'], 'G3': ['2.1'], 'G4': ['3.2'], 'G5': ['4.3'], 'G6': ['P']}
+On obtient la même partition que P4.
+
+Partition Finale : {'G1': ['0.4'], 'G2': ['I'], 'G3': ['2.1'], 'G4': ['3.2'], 'G5': ['4.3'], 'G6': ['P']}
+
+Table de correspondance :
+G1 <- ['0.4']
+G2 <- ['I']
+G3 <- ['2.1']
+G4 <- ['3.2']
+G5 <- ['4.3']
+G6 <- ['P']
+
+etats: G1 G2 G3 G4 G5 G6
+alphabet: a b c d
+initial: G2
+final: G1
+transitions:
+G1 a G6
+G1 b G6
+G1 c G6
+G1 d G1
+G2 a G3
+G2 b G6
+G2 c G6
+G2 d G6
+G3 a G3
+G3 b G4
+G3 c G6
+G3 d G6
+G4 a G6
+G4 b G4
+G4 c G5
+G4 d G6
+G5 a G6
+G5 b G6
+G5 c G5
+G5 d G1
+G6 a G6
+G6 b G6
+G6 c G6
+G6 d G6
+
+
+Reconnaissance de mots :
+
+Pour arrêter les saisies, entrer 'fin'.
+Saisir un mot : aaabbbcccddd
+oui
+Saisir un mot : abcd
+oui
+Saisir un mot : abca
+non
+Saisir un mot : fin
+
+
+Langage complémentaire :
+
+etats: I 2.1 3.2 4.3 0.4 P
+alphabet: a b c d
+initial: I
+final: I 2.1 3.2 4.3 P
+
+           Etat        a          b          c          d
+E/S        I           2.1        P          P          P
+S          2.1         2.1        3.2        P          P
+S          3.2         P          3.2        4.3        P
+S          4.3         P          P          4.3        0.4
+           0.4         P          P          P          0.4
+S          P           P          P          P          P
+
+
+Quel automate voulez-vous tester ?
+Pour arrêter le test, tapez 'stop'.
+Saisie : stop
+
+Process finished with exit code 0
