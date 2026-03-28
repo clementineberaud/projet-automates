@@ -96,13 +96,11 @@ etats: G1 G2 G3
 alphabet: a b
 initial: G2
 final: G1
-transitions:
-G1 a G3
-G1 b G3
-G2 a G1
-G2 b G1
-G3 a G3
-G3 b G3
+
+         Etat        a         b
+S        G1          G3        G3
+E        G2          G1        G1
+         G3          G3        G3
 
 
 Reconnaissance de mots :

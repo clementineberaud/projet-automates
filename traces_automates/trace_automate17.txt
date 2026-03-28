@@ -155,31 +155,14 @@ etats: G1 G2 G3 G4 G5 G6
 alphabet: a b c d
 initial: G1
 final: G1 G2
-transitions:
-G1 a G3
-G1 b G4
-G1 c G5
-G1 d G2
-G2 a G6
-G2 b G6
-G2 c G6
-G2 d G2
-G3 a G3
-G3 b G4
-G3 c G6
-G3 d G6
-G4 a G6
-G4 b G4
-G4 c G5
-G4 d G6
-G5 a G6
-G5 b G6
-G5 c G5
-G5 d G2
-G6 a G6
-G6 b G6
-G6 c G6
-G6 d G6
+
+           Etat        a         b         c         d
+E/S        G1          G3        G4        G5        G2
+S          G2          G6        G6        G6        G2
+           G3          G3        G4        G6        G6
+           G4          G6        G4        G5        G6
+           G5          G6        G6        G5        G2
+           G6          G6        G6        G6        G6
 
 
 Reconnaissance de mots :

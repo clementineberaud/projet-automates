@@ -89,19 +89,11 @@ etats: G1 G2 G3
 alphabet: a b c d
 initial: G1
 final: G1
-transitions:
-G1 a G1
-G1 b G3
-G1 c G2
-G1 d G3
-G2 a G3
-G2 b G2
-G2 c G3
-G2 d G1
-G3 a G3
-G3 b G3
-G3 c G3
-G3 d G3
+
+           Etat        a         b         c         d
+E/S        G1          G1        G3        G2        G3
+           G2          G3        G2        G3        G1
+           G3          G3        G3        G3        G3
 
 
 Reconnaissance de mots :

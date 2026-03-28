@@ -60,9 +60,10 @@ etats: G1 G2
 alphabet: a
 initial: G1
 final: G1
-transitions:
-G1 a G2
-G2 a G2
+
+           Etat        a
+E/S        G1          G2
+           G2          G2
 
 
 Reconnaissance de mots :

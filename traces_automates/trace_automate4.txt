@@ -67,8 +67,9 @@ etats: G1
 alphabet: a
 initial: G1
 final:
-transitions:
-G1 a G1
+
+         Etat        a
+E        G1          G1
 
 
 Reconnaissance de mots :
