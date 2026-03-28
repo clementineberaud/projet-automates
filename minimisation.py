@@ -1,3 +1,5 @@
+from affichage_automate import *
+
 def minimisation(AFDC) :
     fin = False
     k = 0 #compteur du nombre d'itérations pour trouver la partition finale
@@ -91,6 +93,7 @@ def minimisation(AFDC) :
 
 def afficher_automate_minimal(AFDC, AFDCM) :
     tab_cp = {}
+    mini_automate = {}
     i = 1
 
     #on crée la table de correspondance
@@ -106,7 +109,7 @@ def afficher_automate_minimal(AFDC, AFDCM) :
     initial = []
     for grp, etats in tab_cp.items() :
         if AFDC["initial"][0] in etats:
-            initial = grp
+            initial = [grp]
             break
 
     #on cherche les états finaux
@@ -120,35 +123,26 @@ def afficher_automate_minimal(AFDC, AFDCM) :
     #on calcule les transitions
     transitions = []
     for grp, etats in tab_cp.items() :
-        representant = etats[0] #on prend le premier état du groupe
+        etat1 = etats[0] #on prend le premier état du groupe
         for lettre in AFDC["alphabet"] :
             for t in AFDC["transitions"] :
-                if t[0] == representant and t[1] == lettre :
+                if t[0] == etat1 and t[1] == lettre :
                     for grp2, etats2 in tab_cp.items() : #on cherche dans quel groupe se trouve t[2]
                         if t[2] in etats2 :
                             transitions.append([grp, lettre, grp2])
                             break
     print()
 
-    #on affiche sous le même format d'automates que nos fichiers txt
-    print("etats:", end=" ")
+    #on cherche les états minimisés
+    mini_etats = []
     for grp in tab_cp.keys() :
-        print(grp, end=" ")
-    print()
+        mini_etats.append(grp)
 
-    print("alphabet:", end=" ")
-    for lettre in AFDC["alphabet"] :
-        print(lettre, end=" ")
-    print()
+    #on affiche sous le même format d'automates que précédemment
+    mini_automate["etats"] = mini_etats
+    mini_automate["alphabet"] = AFDC["alphabet"]
+    mini_automate["initial"] = initial
+    mini_automate["final"] = final
+    mini_automate["transitions"] = transitions
 
-    print("initial:", initial)
-
-    print("final:", end=" ")
-    for f in final :
-        print(f, end=" ")
-    print()
-
-    print("transitions:")
-    for t in transitions :
-        print(t[0], t[1], t[2])
-
+    afficher_automate(mini_automate)
