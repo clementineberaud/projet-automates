@@ -101,19 +101,12 @@ etats: G1 G2 G3 G4
 alphabet: a b c
 initial: G1
 final: G1
-transitions:
-G1 a G2
-G1 b G3
-G1 c G4
-G2 a G4
-G2 b G1
-G2 c G4
-G3 a G1
-G3 b G4
-G3 c G4
-G4 a G4
-G4 b G4
-G4 c G4
+
+           Etat        a         b         c
+E/S        G1          G2        G3        G4
+           G2          G4        G1        G4
+           G3          G1        G4        G4
+           G4          G4        G4        G4
 
 
 Reconnaissance de mots :

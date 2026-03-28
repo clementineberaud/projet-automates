@@ -116,19 +116,14 @@ etats: G1 G2 G3 G4 G5 G6
 alphabet: a b
 initial: G1
 final: G1 G2 G3 G4 G5
-transitions:
-G1 a G2
-G1 b G3
-G2 a G4
-G2 b G3
-G3 a G2
-G3 b G5
-G4 a G6
-G4 b G3
-G5 a G4
-G5 b G6
-G6 a G6
-G6 b G6
+
+           Etat        a         b
+E/S        G1          G2        G3
+S          G2          G4        G3
+S          G3          G2        G5
+S          G4          G6        G3
+S          G5          G4        G6
+           G6          G6        G6
 
 
 Reconnaissance de mots :

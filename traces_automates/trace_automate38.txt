@@ -71,9 +71,9 @@ etats: G1
 alphabet: a b
 initial: G1
 final: G1
-transitions:
-G1 a G1
-G1 b G1
+
+           Etat        a         b
+E/S        G1          G1        G1
 
 
 Reconnaissance de mots :

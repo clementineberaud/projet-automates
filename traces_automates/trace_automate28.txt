@@ -123,14 +123,15 @@ etats: G1 G2 G3 G4 G5 G6 G7
 alphabet: a
 initial: G5
 final: G1 G2 G3 G4
-transitions:
-G1 a G2
-G2 a G3
-G3 a G7
-G4 a G6
-G5 a G6
-G6 a G1
-G7 a G4
+
+         Etat        a
+S        G1          G2
+S        G2          G3
+S        G3          G7
+S        G4          G6
+E        G5          G6
+         G6          G1
+         G7          G4
 
 
 Reconnaissance de mots :
