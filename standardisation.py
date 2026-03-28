@@ -8,7 +8,8 @@ def standardisation(AF):
             if tr[0] == i:
                 AF['transitions'].append(["I", tr[1], tr[2]])
             if tr[0] in AF['final']:
-                AF['final'].append("I")
+                if "I" not in AF['final']:
+                    AF['final'].append("I")
     AF['initial'] = [initial]
     return AF
 
