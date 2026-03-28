@@ -27,7 +27,7 @@ Automate standardisé :
 etats: 0 1 2 3 4 I
 alphabet: a b c d
 initial: I
-final: 4 I I I I I I I I
+final: 4 I
 
            Etat        a        b         c         d
            0           0        --        --        --

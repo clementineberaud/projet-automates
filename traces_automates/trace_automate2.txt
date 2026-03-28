@@ -23,7 +23,7 @@ Automate standardisé :
 etats: 0 I
 alphabet: a
 initial: I
-final: 0 I I
+final: 0 I
 
            Etat        a
 S          0           0
