@@ -5,11 +5,6 @@ Saisie : 13
 
 Affichage de l'automate :
 
-etats: 0 1 2 3 4 5 6 7
-alphabet: a
-initial: 1
-final: 0 3 4 5 6 7 0
-
          Etat        a
 S        0           0
 E        1           2
@@ -33,11 +28,6 @@ L'automate est déterministe.
 
 
 L'automate est complet.
-
-etats: 0 1 2 3 4 5 6 7
-alphabet: a
-initial: 1
-final: 0 3 4 5 6 7 0
 
          Etat        a
 S        0           0
@@ -85,11 +75,6 @@ G1 <- ['0', '3', '4', '5', '6', '7']
 G2 <- ['1']
 G3 <- ['2']
 
-etats: G1 G2 G3
-alphabet: a
-initial: G2
-final: G1
-
          Etat        a
 S        G1          G1
 E        G2          G3
@@ -110,11 +95,7 @@ Saisir un mot : fin
 
 Langage complémentaire :
 
-etats: 0 1 2 3 4 5 6 7
-alphabet: a
-initial: 1
-final: 1 2
-
+Complémentaire de l'AFDC :
            Etat        a
            0           0
 E/S        1           2

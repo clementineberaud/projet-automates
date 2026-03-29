@@ -1,26 +1,4 @@
 def afficher_automate(a):
-    # affichage des informations principales de l'automate
-    print("etats:", end=" ")
-    for etat in a["etats"] :
-        print(etat, end=" ")
-    print()
-
-    print("alphabet:", end=" ")
-    for lettre in a["alphabet"] :
-        print(lettre, end=" ")
-    print()
-
-    print("initial:", end=" ")
-    for i in a["initial"] :
-        print(i, end=" ")
-    print()
-
-    print("final:", end=" ")
-    for f in a["final"] :
-        print(f, end=" ")
-    print()
-    print()
-
     #création des noms de colonnes du tableau
     tableau = [[""]]
     tableau[0].append("Etat")

@@ -5,11 +5,6 @@ Saisie : 8
 
 Affichage de l'automate :
 
-etats: 0 1
-alphabet: a
-initial: 1
-final: 0
-
          Etat        a
 S        0           0
 E        1           0
@@ -27,11 +22,6 @@ L'automate est déterministe.
 
 
 L'automate est complet.
-
-etats: 0 1
-alphabet: a
-initial: 1
-final: 0
 
          Etat        a
 S        0           0
@@ -56,11 +46,6 @@ Table de correspondance :
 G1 <- ['0']
 G2 <- ['1']
 
-etats: G1 G2
-alphabet: a
-initial: G2
-final: G1
-
          Etat        a
 S        G1          G1
 E        G2          G1
@@ -80,11 +65,7 @@ Saisir un mot : fin
 
 Langage complémentaire :
 
-etats: 0 1
-alphabet: a
-initial: 1
-final: 1
-
+Complémentaire de l'AFDC :
            Etat        a
            0           0
 E/S        1           0

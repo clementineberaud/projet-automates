@@ -5,11 +5,6 @@ Saisie : 29
 
 Affichage de l'automate :
 
-etats: 0 1 2 3 4 5
-alphabet: a
-initial: 1
-final: 0 3
-
          Etat        a
 S        0           4
 E        1           2,4
@@ -34,11 +29,6 @@ L'automate n'est pas déterministe.
 
 
 L'automate est complet.
-
-etats: 1 2.4 3.5 0.2 4.3 0.2.3.5 4.3.0.2 4.3.0.2.5
-alphabet: a
-initial: 1
-final: 3.5 0.2 4.3 0.2.3.5 4.3.0.2 4.3.0.2.5
 
          Etat             a
 E        1                2.4
@@ -95,11 +85,6 @@ G1 <- ['3.5', '0.2', '4.3', '0.2.3.5', '4.3.0.2', '4.3.0.2.5']
 G2 <- ['1']
 G3 <- ['2.4']
 
-etats: G1 G2 G3
-alphabet: a
-initial: G2
-final: G1
-
          Etat        a
 S        G1          G1
 E        G2          G3
@@ -119,11 +104,6 @@ Saisir un mot : fin
 Langage complémentaire :
 
 Complémentaire de l'AFDC :
-etats: 1 2.4 3.5 0.2 4.3 0.2.3.5 4.3.0.2 4.3.0.2.5
-alphabet: a
-initial: 1
-final: 1 2.4
-
            Etat             a
 E/S        1                2.4
 S          2.4              3.5

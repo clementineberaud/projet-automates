@@ -5,11 +5,6 @@ Saisie : 26
 
 Affichage de l'automate :
 
-etats: 0 1 2 3
-alphabet: a b
-initial: 1
-final: 3
-
          Etat        a         b
          0           --        --
 E        1           2         2
@@ -31,11 +26,6 @@ L'état 0 n'a pas une flèche pour chaque lettre.
 L'état 0 n'a pas une flèche pour chaque lettre.
 
 L'automate n'est pas complet.
-
-etats: 0 1 2 3 P
-alphabet: a b
-initial: 1
-final: 3
 
          Etat        a        b
          0           P        P
@@ -83,11 +73,6 @@ G2 <- ['0', 'P']
 G3 <- ['1']
 G4 <- ['2']
 
-etats: G1 G2 G3 G4
-alphabet: a b
-initial: G3
-final: G1
-
          Etat        a         b
 S        G1          G1        G1
          G2          G2        G2
@@ -108,11 +93,6 @@ Saisir un mot : fin
 Langage complémentaire :
 
 Complémentaire de l'AFDC :
-etats: 0 1 2 3 P
-alphabet: a b
-initial: 1
-final: 0 1 2 P
-
            Etat        a        b
 S          0           P        P
 E/S        1           2        2

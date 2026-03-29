@@ -5,11 +5,6 @@ Saisie : 32
 
 Affichage de l'automate :
 
-etats: 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21
-alphabet: a b c
-initial: 0
-final: 21
-
          Etat        a         b         c
 E        0           --        --        --
          1           --        --        --
@@ -52,17 +47,13 @@ L'état 9' n'a pas une flèche pour chaque lettre.
 
 L'automate n'est pas complet.
 
-etats: 0' 7' 4' 9' P
-alphabet: a b c
-initial: 0'
-final: 0' 9'
-
            Etat        a         b         c
 E/S        0'          7'        4'        9'
            7'          P         P         9'
            4'          P         4'        9'
 S          9'          P         P         P
            P           P         P         P
+
 Table de correspondance :
 0' <- {0'} de l'automate original
 7' <- {7'} de l'automate original
@@ -115,11 +106,6 @@ G3 <- ["7'"]
 G4 <- ["4'"]
 G5 <- ['P']
 
-etats: G1 G2 G3 G4 G5
-alphabet: a b c
-initial: G1
-final: G1 G2
-
            Etat        a         b         c
 E/S        G1          G3        G4        G2
 S          G2          G5        G5        G5
@@ -141,11 +127,6 @@ Saisir un mot : fin
 Langage complémentaire :
 
 Complémentaire de l'AFDC :
-etats: 0' 7' 4' 9' P
-alphabet: a b c
-initial: 0'
-final: 7' 4' P
-
          Etat        a         b         c
 E        0'          7'        4'        9'
 S        7'          P         P         9'

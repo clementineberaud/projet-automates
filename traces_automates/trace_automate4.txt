@@ -5,11 +5,6 @@ Saisie : 4
 
 Affichage de l'automate :
 
-etats: 0 1
-alphabet: a
-initial: 0
-final:
-
          Etat        a
 E        0           1
          1           --
@@ -28,11 +23,6 @@ L'automate est déterministe.
 L'état 1 n'a pas une flèche pour chaque lettre.
 
 L'automate n'est pas complet.
-
-etats: 0 1 P
-alphabet: a
-initial: 0
-final:
 
          Etat        a
 E        0           1
@@ -63,11 +53,6 @@ Partition Finale : {'G1': ['0', '1', 'P']}
 Table de correspondance :
 G1 <- ['0', '1', 'P']
 
-etats: G1
-alphabet: a
-initial: G1
-final:
-
          Etat        a
 E        G1          G1
 
@@ -82,11 +67,7 @@ Saisir un mot : fin
 
 Langage complémentaire :
 
-etats: 0 1 P
-alphabet: a
-initial: 0
-final: 0 1 P
-
+Complémentaire de l'AFDC :
            Etat        a
 E/S        0           1
 S          1           P

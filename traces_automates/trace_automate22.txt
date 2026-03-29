@@ -5,11 +5,6 @@ Saisie : 22
 
 Affichage de l'automate :
 
-etats: 0 1 2 3
-alphabet: a b c d
-initial: 1
-final: 1
-
            Etat        a            b         c         d
            0           --           --        --        1
 E/S        1           0,2,3        --        --        --
@@ -23,11 +18,6 @@ Automate non standard
 Voulez-vous le standardiser ? Écrivez oui ou non : oui
 
 Automate standardisé :
-etats: 0 1 2 3 I
-alphabet: a b c d
-initial: I
-final: 1 I
-
            Etat        a            b         c         d
            0           --           --        --        1
 S          1           0,2,3        --        --        --
@@ -58,11 +48,6 @@ L'état 1 n'a pas une flèche pour chaque lettre.
 L'état 1 n'a pas une flèche pour chaque lettre.
 
 L'automate n'est pas complet.
-
-etats: I 0.2.3 3 0 1 P
-alphabet: a b c d
-initial: I
-final: I 1
 
            Etat         a            b        c        d
 E/S        I            0.2.3        P        P        P
@@ -122,11 +107,6 @@ G3 <- ['3']
 G4 <- ['0']
 G5 <- ['P']
 
-etats: G1 G2 G3 G4 G5
-alphabet: a b c d
-initial: G1
-final: G1
-
            Etat        a         b         c         d
 E/S        G1          G2        G5        G5        G5
            G2          G5        G3        G4        G1
@@ -147,11 +127,7 @@ Saisir un mot : fin
 
 Langage complémentaire :
 
-etats: I 0.2.3 3 0 1 P
-alphabet: a b c d
-initial: I
-final: 0.2.3 3 0 P
-
+Complémentaire de l'AFDC :
          Etat         a            b        c        d
 E        I            0.2.3        P        P        P
 S        0.2.3        P            3        0        1
