@@ -62,6 +62,7 @@ while automate != "stop" :
     #langage complémentaire
     print("Langage complémentaire :")
     print()
+    print("Complémentaire de l'AFDC :")
     AComp = automate_complementaire(AFDC)
     afficher_automate(AComp)
     print()
