@@ -120,6 +120,7 @@ Saisir un mot : fin
 
 Langage complémentaire :
 
+Complémentaire de l'AFDC :
 etats: 0' 2' 3'.5' 3' P
 alphabet: a b
 initial: 0'

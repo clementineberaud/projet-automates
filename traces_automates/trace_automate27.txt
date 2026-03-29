@@ -101,6 +101,7 @@ Saisir un mot : fin
 
 Langage complémentaire :
 
+Complémentaire de l'AFDC :
 etats: 0 1 2 P
 alphabet: a b
 initial: 1

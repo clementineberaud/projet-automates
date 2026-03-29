@@ -117,6 +117,7 @@ Saisir un mot : fin
 
 Langage complémentaire :
 
+Complémentaire de l'AFDC :
 etats: I 0 0.1 0.2 0.1.2
 alphabet: a b
 initial: I
