@@ -54,11 +54,6 @@ Partition Finale : {'G1': ['0', 'I']}
 Table de correspondance :
 G1 <- ['0', 'I']
 
-etats: G1
-alphabet: a
-initial: G1
-final: G1
-
            Etat        a
 E/S        G1          G1
 
